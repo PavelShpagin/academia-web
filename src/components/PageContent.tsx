@@ -50,8 +50,8 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
           </div>
           {/* Drone — mobile/tablet: centered between navbar and text */}
-          <div className="absolute left-0 right-0 top-[72px] bottom-[45%] lg:hidden flex items-center justify-center">
-            <Image src="/drone.png" alt="" width={350} height={250} className="object-contain" priority />
+          <div className="absolute left-0 right-0 top-[72px] bottom-[45%] lg:hidden">
+            <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
             {/* Gradient behind text, above drone — mobile only */}
