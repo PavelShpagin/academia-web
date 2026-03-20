@@ -45,19 +45,18 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
 
       {/* ── Hero ── */}
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
-        <div className="relative flex-1 flex items-center overflow-hidden pt-[72px]">
+        <div className="relative flex-1 flex items-end lg:items-center overflow-hidden pt-[72px]">
           {/* Drone — desktop: absolute right */}
           <div className="absolute right-[10%] top-0 bottom-0 w-[60%] hidden lg:block">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
           </div>
-          {/* Drone — mobile/tablet: behind text, filling the section */}
+          {/* Drone — mobile/tablet: top area */}
           <div className="absolute inset-0 lg:hidden">
-            <Image src="/drone.png" alt="" fill className="object-contain object-[70%_center]" priority />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/80" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/30 to-white/50" />
+            <Image src="/drone.png" alt="" fill className="object-contain object-[center_30%]" priority />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white" />
           </div>
-          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
+          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0">
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
