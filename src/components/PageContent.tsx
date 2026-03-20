@@ -45,7 +45,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
         <div className="relative flex-1 flex items-end lg:items-center overflow-hidden pt-[72px]">
           {/* Drone — desktop: absolute right */}
-          <div className="absolute right-[14%] top-[15%] bottom-[15%] w-[42%] hidden lg:block">
+          <div className="absolute right-[10%] top-[10%] bottom-[10%] w-[48%] hidden lg:block xl:right-[14%] xl:top-[15%] xl:bottom-[15%] xl:w-[42%]">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-5% via-white/50 via-25% to-transparent to-55%" />
           </div>
