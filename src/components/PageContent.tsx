@@ -3,7 +3,7 @@ import Link from "next/link";
 import UnitMarquee from "./UnitMarquee";
 import { Impact1 } from "./ImpactVariants";
 import { Research1 } from "./ResearchVariants";
-import { Products1, Products2, Products3, Products4, Products5, Products6, Products7, Products8, Products9, Products10 } from "./ProductVariants";
+import { Products2 } from "./ProductVariants";
 
 export interface HeroVariant {
   headline: string;
@@ -15,9 +15,7 @@ const defaultHero: HeroVariant = {
   subtitle: "StabX is the stabilization standard in Ukraine. NaviX navigation is in testing. Compatible with most drones. Defense to industry.",
 };
 
-const productComponents = [Products1, Products2, Products3, Products4, Products5, Products6, Products7, Products8, Products9, Products10];
-
-export default function PageContent({ fontLabel, units, hero, productVariant }: { fontLabel: string; units: string[]; hero?: HeroVariant; productVariant?: number }) {
+export default function PageContent({ fontLabel, units, hero }: { fontLabel: string; units: string[]; hero?: HeroVariant }) {
   const h = hero ?? defaultHero;
   return (
     <div className="min-h-screen bg-white text-black antialiased">
@@ -68,10 +66,7 @@ export default function PageContent({ fontLabel, units, hero, productVariant }: 
       </section>
 
       {/* ── Products Section ── */}
-      {(() => {
-        const ProductComponent = productComponents[(productVariant ?? 1) - 1] ?? Products1;
-        return <ProductComponent />;
-      })()}
+      <Products2 />
 
       {/* ── Impact Section ── */}
       <Impact1 />
