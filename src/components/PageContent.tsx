@@ -45,13 +45,13 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
         <div className="relative flex-1 flex items-end lg:items-center overflow-hidden pt-[72px]">
           {/* Drone — desktop: absolute right */}
-          <div className="absolute right-[8%] top-[8%] bottom-[8%] w-[50%] hidden lg:block xl:right-[12%] xl:top-[12%] xl:bottom-[12%] xl:w-[44%]">
+          <div className="absolute right-[8%] top-[8%] bottom-[8%] w-[50%] hidden lg:block xl:right-[14%] xl:top-[15%] xl:bottom-[15%] xl:w-[40%]">
             <Image src="/drone.png" alt="" fill className="object-contain object-center opacity-90" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-5% via-white/50 via-25% to-transparent to-55%" />
           </div>
           {/* Drone — mobile/tablet: centered between navbar and text */}
           <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden pointer-events-none">
-            <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
+            <Image src="/drone.png" alt="" fill className="object-contain object-center opacity-90" priority />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
             {/* Gradient behind text, above drone — mobile only */}
