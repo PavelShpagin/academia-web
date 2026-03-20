@@ -46,10 +46,16 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       {/* ── Hero ── */}
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
         <div className="relative flex-1 flex items-center overflow-hidden pt-[72px]">
-          {/* Drone — desktop: absolute right bg */}
+          {/* Drone — desktop: absolute right */}
           <div className="absolute right-[10%] top-0 bottom-0 w-[60%] hidden lg:block">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
+          </div>
+          {/* Drone — mobile/tablet: behind text */}
+          <div className="absolute inset-0 flex items-center justify-center lg:hidden">
+            <Image src="/drone.png" alt="" width={400} height={400} className="object-contain opacity-100" priority />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-white/60" />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
@@ -64,10 +70,6 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
               <a href="#platforms" className="inline-flex items-center h-11 md:h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
                 Our Products
               </a>
-            </div>
-            {/* Drone — mobile: inline below text */}
-            <div className="lg:hidden mt-10 flex justify-center">
-              <Image src="/drone.png" alt="" width={320} height={240} className="object-contain" priority />
             </div>
           </div>
         </div>
