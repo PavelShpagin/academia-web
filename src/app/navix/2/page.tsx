@@ -32,8 +32,7 @@ export default function NaviX2Page() {
       {/* ── Hero ── */}
       <section className="pt-[72px]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 pt-20 md:pt-28 pb-20 md:pb-28">
-          <span className="inline-flex items-center gap-2 border border-neutral-700 px-3 py-1.5 text-[12px] tracking-wide text-neutral-400 uppercase mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+          <span className="inline-flex items-center border border-neutral-700 px-3 py-1.5 text-[12px] tracking-wide text-neutral-400 uppercase mb-8">
             In closed testing
           </span>
           <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-[-0.04em] leading-[0.9] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
