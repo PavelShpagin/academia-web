@@ -9,12 +9,14 @@ export default function MobileMenu() {
     <div className="md:hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="flex flex-col justify-center items-center w-8 h-8 gap-[5px]"
+        className="relative w-10 h-10 flex items-center justify-center"
         aria-label="Menu"
       >
-        <span className={`block w-5 h-[1.5px] bg-black transition-all duration-200 ${open ? "rotate-45 translate-y-[6.5px]" : ""}`} />
-        <span className={`block w-5 h-[1.5px] bg-black transition-all duration-200 ${open ? "opacity-0" : ""}`} />
-        <span className={`block w-5 h-[1.5px] bg-black transition-all duration-200 ${open ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+        <div className="w-[18px] h-[14px] relative">
+          <span className={`absolute left-0 w-full h-[1.5px] bg-black transition-all duration-300 ease-in-out ${open ? "top-[6.25px] rotate-45" : "top-0"}`} />
+          <span className={`absolute left-0 top-[6.25px] w-full h-[1.5px] bg-black transition-all duration-300 ease-in-out ${open ? "opacity-0 scale-x-0" : "opacity-100"}`} />
+          <span className={`absolute left-0 w-full h-[1.5px] bg-black transition-all duration-300 ease-in-out ${open ? "top-[6.25px] -rotate-45" : "top-[12.5px]"}`} />
+        </div>
       </button>
       {open && (
         <div className="absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 py-6 flex flex-col gap-4">
