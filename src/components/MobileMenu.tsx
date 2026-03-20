@@ -25,7 +25,7 @@ export default function MobileMenu() {
       </button>
       {open && (
         <>
-          <div className="fixed inset-0 top-[72px] bg-black/10 backdrop-blur-sm z-40" onClick={() => setOpen(false)} />
+          <div className="fixed inset-0 top-[72px] bg-black/20 backdrop-blur-[3px] z-40" onClick={() => setOpen(false)} />
           <div className="absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 py-6 flex flex-col gap-4 z-50">
             <a href="#platforms" onClick={() => setOpen(false)} className="text-[15px] text-neutral-600 hover:text-black transition-colors">Products</a>
             <a href="#impact" onClick={() => setOpen(false)} className="text-[15px] text-neutral-600 hover:text-black transition-colors">Impact</a>
