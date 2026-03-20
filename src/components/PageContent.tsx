@@ -53,9 +53,9 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           <div className="absolute left-0 right-0 top-[72px] h-[45%] lg:hidden">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
           </div>
-          {/* Gradient: white fading up from text into drone — mobile only */}
-          <div className="absolute bottom-0 left-0 right-0 h-[80%] lg:hidden pointer-events-none z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 40%, rgba(255,255,255,0.95) 55%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.4) 85%, transparent 100%)" }} />
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
+            {/* Gradient behind text, above drone — mobile only */}
+            <div className="absolute -inset-x-6 -bottom-12 -top-24 lg:hidden pointer-events-none -z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 35%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.3) 85%, transparent 100%)" }} />
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
