@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Unbounded } from "next/font/google";
+import { Albert_Sans, Anonymous_Pro, Unbounded } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const albertSans = Albert_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const anonymousPro = Anonymous_Pro({
   variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "700"],
 });
 
 const unbounded = Unbounded({
@@ -41,9 +42,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${unbounded.variable} antialiased`}
+      className={`${albertSans.variable} ${anonymousPro.variable} ${unbounded.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>{children}</body>
     </html>
   );
 }
