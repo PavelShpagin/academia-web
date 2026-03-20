@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Nav from "@/components/Nav";
 
 export const metadata = {
   title: "StabX — Optical Flight Stabilization | Academia Tech",
@@ -9,25 +10,7 @@ export const metadata = {
 export default function StabXPage() {
   return (
     <div className="min-h-screen bg-black text-white antialiased">
-      {/* ── Navigation ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[72px]">
-          <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="Academia" width={28} height={28} className="invert" />
-            <span className="text-[17px] font-semibold tracking-[0.04em] uppercase text-black" style={{ fontFamily: "var(--font-unbounded), system-ui, sans-serif" }}>
-              Academia
-            </span>
-          </Link>
-          <div className="hidden md:flex items-center gap-10">
-            <Link href="/#platforms" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Products</Link>
-            <Link href="/#impact" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Impact</Link>
-            <Link href="/#research" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Research</Link>
-          </div>
-          <Link href="#contact" className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
-            Get in touch
-          </Link>
-        </div>
-      </nav>
+      <Nav />
 
       {/* ── Hero + Modules ── */}
       <section className="pt-[72px]">
@@ -67,8 +50,8 @@ export default function StabXPage() {
               },
             ].map((mod) => (
               <div key={mod.name} className="relative bg-[#161616] p-6 md:p-8 pb-8 md:pb-10" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
-                {/* Mode icon — top right, behind content */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-10 pointer-events-none">
+                {/* Mode icon — top left, behind content */}
+                <div className="absolute top-4 left-4 md:top-6 md:left-6 opacity-10 pointer-events-none">
                   {mod.icon === "day" && (
                     <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="5" />
