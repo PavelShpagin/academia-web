@@ -49,12 +49,13 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
           </div>
-          {/* Drone — mobile/tablet: top-left area */}
-          <div className="absolute inset-0 lg:hidden">
-            <Image src="/drone.png" alt="" fill className="object-contain object-[15%_25%]" priority />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% via-white/50 via-60% to-white" />
+          {/* Drone — mobile/tablet: top-left, partially off-screen */}
+          <div className="absolute -left-[15%] top-0 bottom-0 w-[130%] lg:hidden">
+            <Image src="/drone.png" alt="" fill className="object-contain object-[20%_25%]" priority />
           </div>
-          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0">
+          {/* Gradient: white fading up from text into drone — mobile only */}
+          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden pointer-events-none z-[1]" />
+          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
