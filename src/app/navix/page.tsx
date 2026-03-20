@@ -10,7 +10,7 @@ export default function NaviX2Page() {
   return (
     <div className="min-h-screen bg-black text-white antialiased">
       {/* ── Navigation ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-neutral-200/60">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-200">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo.png" alt="Academia" width={28} height={28} className="invert" />
