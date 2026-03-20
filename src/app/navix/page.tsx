@@ -265,11 +265,8 @@ export default function NaviXPage() {
               </span>
             </div>
             <div className="flex flex-wrap gap-8 text-[14px] text-neutral-400">
-              {["Privacy", "Terms", "Security", "Compliance", "Careers"].map((link) => (
-                <a key={link} href="#" className="hover:text-black transition-colors duration-200">
-                  {link}
-                </a>
-              ))}
+              <a href="mailto:business@theacademia.tech" className="hover:text-black transition-colors duration-200">business@theacademia.tech</a>
+              <a href="https://www.linkedin.com/company/theacademia-tech/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200">LinkedIn</a>
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">

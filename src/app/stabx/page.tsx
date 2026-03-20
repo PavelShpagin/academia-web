@@ -180,6 +180,7 @@ export default function StabXPage() {
             <div className="flex flex-wrap gap-8 text-[14px] text-neutral-400">
               <a href="mailto:business@theacademia.tech" className="hover:text-black transition-colors duration-200">business@theacademia.tech</a>
               <a href="mailto:sales@theacademia.tech" className="hover:text-black transition-colors duration-200">sales@theacademia.tech</a>
+              <a href="https://www.linkedin.com/company/theacademia-tech/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200">LinkedIn</a>
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">
