@@ -44,7 +44,7 @@ export default function NaviLocPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-neutral-500 leading-relaxed font-light mb-10">
-            Matching drone cameras to satellite maps across the entire flight path &mdash; 19.5m accuracy, 16x improvement over state-of-the-art, 9 FPS on Raspberry Pi 5
+            Matching drone cameras to satellite maps &mdash; across the entire flight path, not frame by frame
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pb-10 border-b border-neutral-200">
