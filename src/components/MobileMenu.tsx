@@ -31,10 +31,10 @@ export default function MobileMenu() {
       />
       {/* Menu panel */}
       <div className={`absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 overflow-hidden z-50 transition-all duration-300 ease-out ${open ? "max-h-64 py-6 opacity-100" : "max-h-0 py-0 opacity-0"}`}>
-        {["Products", "Impact", "Research", "Contact"].map((item, i) => (
+        {["Products", "Impact", "Research"].map((item, i) => (
           <a
             key={item}
-            href={`#${item === "Contact" ? "contact" : item.toLowerCase()}`}
+            href={`#${item.toLowerCase()}`}
             onClick={() => setOpen(false)}
             className="block text-[15px] text-neutral-600 hover:text-black transition-all duration-300 py-2"
             style={{ transitionDelay: open ? `${i * 50}ms` : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
@@ -42,6 +42,14 @@ export default function MobileMenu() {
             {item}
           </a>
         ))}
+        <a
+          href="#contact"
+          onClick={() => setOpen(false)}
+          className="inline-flex items-center justify-center h-10 px-5 mt-2 text-[14px] font-medium bg-black text-white hover:bg-neutral-800 transition-all duration-300"
+          style={{ transitionDelay: open ? "150ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
+        >
+          Get in touch
+        </a>
       </div>
     </div>
   );
