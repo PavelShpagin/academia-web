@@ -60,11 +60,12 @@ export function Products2() {
               <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Optical Stabilization</p>
               <h3 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-6 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
               <p className="text-neutral-400 text-[16px] leading-relaxed mb-8 max-w-lg">GPS-free flight stabilization trusted by 700+ Armed Forces units. Day and night variants. Compatible with most Ardupilot-based UAVs.</p>
-              <div className="flex gap-8 text-[13px] text-neutral-500">
+              <div className="flex gap-8 text-[13px] text-neutral-500 mb-8">
                 <div><span className="text-neutral-300 block text-lg font-semibold">700+</span>units deployed</div>
                 <div><span className="text-neutral-300 block text-lg font-semibold">47</span>integrations</div>
                 <div><span className="text-neutral-300 block text-lg font-semibold">&lt;100g</span>weight</div>
               </div>
+              <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">View modules &rarr;</span>
             </div>
             <div className="flex justify-center">
               <Image src="/stabx.png" alt="StabX" width={340} height={240} className="object-contain" />
@@ -77,13 +78,15 @@ export function Products2() {
             <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-6">In Testing</span>
             <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Visual Navigation</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed">AI-powered GPS-free navigation matching camera imagery with satellite maps. 19.5m accuracy on Raspberry Pi 5.</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">AI-powered GPS-free navigation matching camera imagery with satellite maps. 19.5m accuracy on Raspberry Pi 5.</p>
+            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Join waitlist &rarr;</span>
           </Link>
           <a href="https://supportbot.info" target="_blank" rel="noopener noreferrer" className="group block bg-[#111] p-8 md:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}>
             <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">Live</span>
             <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Automated Technical Support</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed">24/7 AI-powered support for StabX operators and integrators. Instant answers via Signal.</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">24/7 AI-powered support for StabX operators and integrators. Instant answers via Signal.</p>
+            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Open SupportBot &rarr;</span>
           </a>
         </div>
       </div>
@@ -234,7 +237,7 @@ export function Products7() {
         <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Products</h2>
         {/* StabX with prominent image */}
         <div className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0" style={{ clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)" }}>
             <div className="bg-[#0a0a0a] flex items-center justify-center p-12 min-h-[300px]">
               <Image src="/stabx.png" alt="StabX module" width={320} height={240} className="object-contain" />
             </div>
@@ -302,40 +305,34 @@ export function Products8() {
 /* ── Variant 9: Two-tone — StabX on white, rest on black ── */
 export function Products9() {
   return (
-    <section id="platforms">
-      {/* StabX on white */}
-      <div className="bg-white text-black py-28 md:py-40">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Products</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-400 mb-4">Flagship Product</p>
-              <h3 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
-              <p className="text-neutral-600 text-[16px] leading-relaxed mb-8">Optical flight stabilization without GPS. Trusted by 700+ Armed Forces of Ukraine units across 47 UAV platforms. Day and night variants.</p>
-              <Link href="/stabx" className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors">View modules &rarr;</Link>
-            </div>
-            <div className="flex justify-center">
-              <Image src="/stabx.png" alt="StabX" width={380} height={280} className="object-contain" />
-            </div>
+    <section id="platforms" className="bg-black text-white py-28 md:py-40">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Products</h2>
+        {/* StabX — featured with image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 pb-20 border-b border-white/10">
+          <div>
+            <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Flagship Product</p>
+            <h3 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
+            <p className="text-neutral-400 text-[16px] leading-relaxed mb-8">Optical flight stabilization without GPS. Trusted by 700+ Armed Forces of Ukraine units across 47 UAV platforms. Day and night variants.</p>
+            <Link href="/stabx" className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">View modules &rarr;</Link>
+          </div>
+          <div className="flex justify-center">
+            <Image src="/stabx.png" alt="StabX" width={380} height={280} className="object-contain" />
           </div>
         </div>
-      </div>
-      {/* NaviX + SupportBot on black */}
-      <div className="bg-black text-white py-20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="border-t-2 border-white/20 pt-8">
-              <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-4">In Testing</span>
-              <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
-              <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">GPS-free visual navigation. Matches camera imagery with satellite maps. 19.5m accuracy on Raspberry Pi 5.</p>
-              <Link href="/navix" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">Join waitlist &rarr;</Link>
-            </div>
-            <div className="border-t-2 border-white/20 pt-8">
-              <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-4">Live</span>
-              <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
-              <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">24/7 automated technical support for StabX operators and integrators via Signal.</p>
-              <a href="https://supportbot.info" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">Open SupportBot &rarr;</a>
-            </div>
+        {/* NaviX + SupportBot */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="border-t-2 border-white/20 pt-8">
+            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-4">In Testing</span>
+            <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">GPS-free visual navigation. Matches camera imagery with satellite maps. 19.5m accuracy on Raspberry Pi 5.</p>
+            <Link href="/navix" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">Join waitlist &rarr;</Link>
+          </div>
+          <div className="border-t-2 border-white/20 pt-8">
+            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-4">Live</span>
+            <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">24/7 automated technical support for StabX operators and integrators via Signal.</p>
+            <a href="https://supportbot.info" target="_blank" rel="noopener noreferrer" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">Open SupportBot &rarr;</a>
           </div>
         </div>
       </div>
