@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import UnitMarquee from "./UnitMarquee";
+import { Impact1 } from "./ImpactVariants";
+import { Research1 } from "./ResearchVariants";
 
 export interface HeroVariant {
   headline: string;
@@ -66,7 +68,6 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       <section id="platforms" className="bg-black text-white py-28 md:py-40">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-20">
-            <p className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-500 mb-5">What We Build</p>
             <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em]">Three products. One mission.</h2>
           </div>
 
@@ -74,7 +75,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* StabX */}
             <div
-              className="bg-[#111] border border-white/10 p-8 md:p-10 flex flex-col hover:border-white/25 transition-colors duration-300"
+              className="bg-[#111] p-8 md:p-10 flex flex-col"
               style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}
             >
               <div className="flex items-center justify-center h-48 mb-8">
@@ -100,7 +101,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
 
             {/* NaviX */}
             <div
-              className="bg-[#111] border border-white/10 p-8 md:p-10 flex flex-col hover:border-white/25 transition-colors duration-300"
+              className="bg-[#111] p-8 md:p-10 flex flex-col"
               style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}
             >
               <div className="flex items-center justify-center h-48 mb-8">
@@ -129,7 +130,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
 
             {/* SupportBot */}
             <div
-              className="bg-[#111] border border-white/10 p-8 md:p-10 flex flex-col hover:border-white/25 transition-colors duration-300"
+              className="bg-[#111] p-8 md:p-10 flex flex-col"
               style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}
             >
               <div className="flex items-center justify-center h-48 mb-8">
@@ -160,74 +161,10 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       </section>
 
       {/* ── Impact Section ── */}
-      <section id="impact" className="bg-white py-28 md:py-40">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
-            <div className="lg:col-span-1">
-              <p className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-400 lg:sticky lg:top-28">Impact</p>
-            </div>
-            <div className="lg:col-span-2">
-              {[
-                { value: "700+", label: "Armed Forces of Ukraine units running StabX" },
-                { value: "47", label: "UAV companies with StabX integrated into their platforms" },
-                { value: "4", label: "Retranslator codifications in progress with top-tier manufacturers" },
-                { value: "Brave1", label: "StabX modules listed on the Brave1 defense marketplace" },
-              ].map((stat) => (
-                <div key={stat.value} className="border-t border-neutral-200 pt-8 pb-12">
-                  <p className="text-5xl md:text-6xl font-semibold tracking-[-0.03em] text-black mb-2">{stat.value}</p>
-                  <p className="text-[17px] text-neutral-500">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Impact1 />
 
       {/* ── Research Section ── */}
-      <section id="research" className="bg-black text-white py-28 md:py-40">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28">
-            <div>
-              <p className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-500 mb-5">Research</p>
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-white mb-6 leading-tight">
-                Not research-only.<br />Not product-only.
-              </h2>
-              <p className="text-neutral-400 leading-relaxed max-w-md text-[15px] mb-4">
-                The Academia in our name reflects our DNA: tight collaboration with academic institutions and a scientific direction that produces both proprietary products and peer-reviewed novelty.
-              </p>
-              <p className="text-neutral-400 leading-relaxed max-w-md text-[15px]">
-                We build what&apos;s needed now — while publishing what we discover.
-              </p>
-            </div>
-            <div>
-              <Link
-                href="/research/naviloc"
-                className="block border border-white/10 p-8 hover:border-white/25 transition-colors duration-300 group"
-                style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}
-              >
-                <p className="text-[11px] font-medium tracking-wide uppercase text-neutral-500 mb-3">Drones (MDPI) &middot; 2026</p>
-                <h3 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-4 group-hover:text-neutral-200 transition-colors">
-                  NaviLoc: GPS-Free Navigation for Drones Using Visual Intelligence
-                </h3>
-                <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">
-                  How we taught drones to know where they are without satellites — matching camera imagery with satellite maps using AI, achieving 20-30m accuracy at 50-100m altitude.
-                </p>
-                <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors duration-200">
-                  Read the article &rarr;
-                </span>
-              </Link>
-              <a
-                href="https://www.mdpi.com/2504-446X/10/2/97"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-4 text-[13px] text-neutral-500 hover:text-neutral-300 transition-colors"
-              >
-                Full paper on MDPI &rarr;
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Research1 />
 
       {/* ── Footer ── */}
       <footer id="contact" className="bg-white text-black border-t border-neutral-200">
