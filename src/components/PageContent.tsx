@@ -53,7 +53,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           </div>
           {/* Drone — mobile/tablet: top area */}
           <div className="absolute inset-0 lg:hidden">
-            <Image src="/drone.png" alt="" fill className="object-contain object-[center_30%]" priority />
+            <Image src="/drone.png" alt="" fill className="object-contain object-[40%_30%]" priority />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white" />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0">
