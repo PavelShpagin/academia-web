@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import { getLang, t } from "@/lib/i18n";
 
 export const metadata = {
   title: "NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation — Academia Tech",
@@ -8,10 +9,12 @@ export const metadata = {
     "NaviLoc matches drone camera images to satellite maps using trajectory-level optimization, achieving 19.5m accuracy without GPS on a Raspberry Pi 5.",
 };
 
-export default function NaviLocPage() {
+export default async function NaviLocPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const params = await searchParams;
+  const lang = getLang(params);
   return (
     <div className="min-h-screen bg-white text-black antialiased">
-      <Nav />
+      <Nav lang={lang} />
 
       {/* ── Article Header ── */}
       <header className="pt-[72px]">

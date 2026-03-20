@@ -1,16 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import { getLang, t, Lang } from "@/lib/i18n";
 
 export const metadata = {
   title: "StabX — Optical Flight Stabilization | Academia Tech",
   description: "GPS-free optical flight stabilization for UAVs. Day and night variants. Trusted by 700+ Armed Forces of Ukraine units.",
 };
 
-export default function StabXPage() {
+export default async function StabXPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const params = await searchParams;
+  const lang = getLang(params);
+
   return (
     <div className="min-h-screen bg-black text-white antialiased">
-      <Nav />
+      <Nav lang={lang} />
 
       {/* ── Hero + Modules ── */}
       <section className="pt-[72px]">
@@ -19,31 +23,31 @@ export default function StabXPage() {
             StabX
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl leading-relaxed mb-16">
-            Optical flight stabilization without GPS, compass, or external signals. Tracks terrain in real time, fuses optical flow with IMU data. Holds position, maintains heading, returns home autonomously on signal loss.
+            {t("stabx.desc", lang)}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {[
               {
                 name: "StabX Day",
-                desc: "Daytime optical stabilization using visible-light camera.",
-                camera: "Visible light",
+                desc: t("stabx.day.desc", lang),
+                camera: t("stabx.camera.visible", lang),
                 buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4710/",
                 icon: "day" as const,
                 img: "/stabx.png",
               },
               {
                 name: "StabX Night",
-                desc: "Thermal imaging stabilization for night and low-visibility operations.",
-                camera: "Thermal",
+                desc: t("stabx.night.desc", lang),
+                camera: t("stabx.camera.thermal", lang),
                 buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4646/",
                 icon: "night" as const,
                 img: "/stabx.png",
               },
               {
                 name: "StabX Day+Night",
-                desc: "Combined visible and thermal module for 24-hour operation.",
-                camera: "Visible + Thermal",
+                desc: t("stabx.daynight.desc", lang),
+                camera: t("stabx.camera.both", lang),
                 buyUrl: null,
                 img: "/day-night.png",
                 icon: "both" as const,
@@ -87,7 +91,7 @@ export default function StabXPage() {
                 <h3 className="text-2xl font-semibold tracking-[-0.02em] mb-2" style={{ fontFamily: "var(--font-unbounded)" }}>{mod.name}</h3>
                 <p className="text-neutral-400 text-[15px] mb-6">{mod.desc}</p>
                 <div className="flex justify-between py-3 border-t border-white/10 text-[14px]">
-                  <span className="text-neutral-500">Camera</span>
+                  <span className="text-neutral-500">{t("stabx.camera", lang)}</span>
                   <span className="text-neutral-200">{mod.camera}</span>
                 </div>
                 {mod.buyUrl ? (
@@ -97,7 +101,7 @@ export default function StabXPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center mt-6 text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors duration-200"
                   >
-                    Buy on Brave1 &rarr;
+                    {t("stabx.buyBrave1", lang)} &rarr;
                   </a>
                 ) : (
                   <div className="mt-6 h-[21px]" />
@@ -111,17 +115,17 @@ export default function StabXPage() {
       {/* ── Specifications ── */}
       <section className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Specifications</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">{t("stabx.specs", lang)}</h2>
 
           <div className="max-w-3xl">
-            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6">Navigation &amp; Autonomy</h3>
+            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6">{t("stabx.specs.navAutonomy", lang)}</h3>
             <div className="border-l border-r border-white/10">
               {[
-                ["Stabilization", "Activates at takeoff, does not interfere with piloting"],
-                ["Azimuth drift", "<1° per 5 min"],
-                ["RTL", "Returns via shortest trajectory (not along flight path)"],
-                ["Return error", "~500m over a 7–8 km flight, terrain dependent"],
-                ["Integration", "4 wires and a few parameters in Ardupilot"],
+                [t("stabx.specs.stabilization", lang), t("stabx.specs.stabilizationVal", lang)],
+                [t("stabx.specs.drift", lang), "<1° per 5 min"],
+                [t("stabx.specs.rtl", lang), t("stabx.specs.rtlVal", lang)],
+                [t("stabx.specs.returnError", lang), t("stabx.specs.returnErrorVal", lang)],
+                [t("stabx.specs.integration", lang), t("stabx.specs.integrationVal", lang)],
               ].map(([label, value]) => (
                 <div key={label} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
                   <span className="text-neutral-500">{label}</span>
@@ -130,7 +134,7 @@ export default function StabXPage() {
               ))}
             </div>
 
-            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Altitude vs. Horizontal Deviation</h3>
+            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">{t("stabx.specs.altDev", lang)}</h3>
             <div className="border-l border-r border-white/10">
               {[
                 ["50m", "~1m"],
@@ -145,14 +149,14 @@ export default function StabXPage() {
               ))}
             </div>
 
-            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Hardware</h3>
+            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">{t("stabx.specs.hardware", lang)}</h3>
             <div className="border-l border-r border-white/10">
               {[
-                ["Working altitude", "50–1000m"],
-                ["Weight", "<100g"],
-                ["Power consumption", "<15W"],
-                ["Security", "Bluetooth key, encrypted, hardware-bound"],
-                ["Compatibility", "Most Ardupilot-based UAVs"],
+                [t("stabx.specs.workingAlt", lang), "50–1000m"],
+                [t("stabx.specs.weight", lang), "<100g"],
+                [t("stabx.specs.power", lang), "<15W"],
+                [t("stabx.specs.security", lang), t("stabx.specs.securityVal", lang)],
+                [t("stabx.specs.compatibility", lang), t("stabx.specs.compatibilityVal", lang)],
               ].map(([label, value]) => (
                 <div key={label} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
                   <span className="text-neutral-500">{label}</span>
@@ -168,14 +172,16 @@ export default function StabXPage() {
       <section id="contact" className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40 text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] mb-10" style={{ fontFamily: "var(--font-unbounded)" }}>
-            Integrate StabX into<br />your platform
+            {t("stabx.cta", lang).split("\n").map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="mailto:sales@theacademia.tech" className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors duration-200">
-              Contact Sales
+              {t("stabx.contactSales", lang)}
             </a>
             <a href="mailto:business@theacademia.tech" className="inline-flex items-center h-12 px-8 text-[15px] font-medium border border-neutral-600 text-white hover:border-white transition-colors duration-200">
-              Business Inquiries
+              {t("stabx.businessInquiries", lang)}
             </a>
           </div>
         </div>
@@ -198,7 +204,7 @@ export default function StabXPage() {
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">
-            <p className="text-[13px] text-neutral-400">&copy; 2026 Academia Tech. All rights reserved.</p>
+            <p className="text-[13px] text-neutral-400">{t("footer.rights", lang)}</p>
           </div>
         </div>
       </footer>

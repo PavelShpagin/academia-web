@@ -1,56 +1,60 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import { getLang, t, Lang } from "@/lib/i18n";
 
 export const metadata = {
   title: "NaviX — Visual Navigation Without GPS | Academia Tech",
   description: "GPS-free visual navigation for UAVs. Matches drone camera to satellite imagery. 20-30m accuracy on Raspberry Pi 5.",
 };
 
-export default function NaviXPage() {
+export default async function NaviXPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  const params = await searchParams;
+  const lang = getLang(params);
+
   return (
     <div className="min-h-screen bg-black text-white antialiased">
-      <Nav />
+      <Nav lang={lang} />
 
       {/* ── Hero ── */}
       <section className="pt-[72px]">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 pt-20 md:pt-28 pb-20 md:pb-28">
           <span className="inline-flex items-center border border-neutral-700 px-3 py-1.5 text-[12px] tracking-wide text-neutral-400 uppercase mb-8">
-            In closed testing
+            {t("navix.inClosedTesting", lang)}
           </span>
           <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-[-0.04em] leading-[0.9] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
             NaviX
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl leading-relaxed mb-6">
-            GPS-free visual navigation for UAVs. Determines drone position by matching camera imagery to satellite maps — no external signals required. 20–30m accuracy on a Raspberry Pi 5.
+            {t("navix.desc", lang)}
           </p>
-          <Link href="/research/naviloc" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">Based on NaviLoc research &rarr;</Link>
+          <Link href="/research/naviloc" className="text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors">{t("navix.basedOn", lang)} &rarr;</Link>
         </div>
       </section>
 
       {/* ── How to use — with UI screenshot ── */}
       <section className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">How to use</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">{t("navix.howToUse", lang)}</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-14">
               <div>
-                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">1 — Prepare the mission</div>
+                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">{t("navix.step1.title", lang)}</div>
                 <p className="text-[15px] text-neutral-300 leading-relaxed">
-                  At home or anywhere with internet, connect to the drone&apos;s web interface. Choose a point on the map, set the coverage radius, and fetch the satellite data. For a 10 km&sup2; area, preparation takes under 2 minutes.
+                  {t("navix.step1.desc", lang)}
                 </p>
               </div>
               <div>
-                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">2 — Fly</div>
+                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">{t("navix.step2.title", lang)}</div>
                 <p className="text-[15px] text-neutral-300 leading-relaxed">
-                  Once the drone takes off, NaviX automatically uses the prepared data to localize it in real time. At altitudes between 100–1000m, the system continuously matches what the camera sees against the satellite map to determine the drone&apos;s true position.
+                  {t("navix.step2.desc", lang)}
                 </p>
               </div>
               <div>
-                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">3 — Navigate without GPS</div>
+                <div className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-3">{t("navix.step3.title", lang)}</div>
                 <p className="text-[15px] text-neutral-300 leading-relaxed">
-                  NaviX corrects the drone&apos;s position estimate by nudging it back to where GPS says it should be — except it does this without GPS. The result is high-precision navigation at any mission scale, even in full GPS denial.
+                  {t("navix.step3.desc", lang)}
                 </p>
               </div>
             </div>
@@ -58,7 +62,7 @@ export default function NaviXPage() {
               <div className="bg-[#111] p-3" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
                 <Image src="/navix-ui.png" alt="NaviX mission interface — trajectory prediction on satellite map" width={700} height={420} className="w-full" />
               </div>
-              <p className="text-[12px] text-neutral-600 mt-3">NaviX interface displaying corrected drone position on the satellite map</p>
+              <p className="text-[12px] text-neutral-600 mt-3">{t("navix.uiCaption", lang)}</p>
             </div>
           </div>
         </div>
@@ -67,17 +71,17 @@ export default function NaviXPage() {
       {/* ── Specifications ── */}
       <section className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Specifications</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">{t("stabx.specs", lang)}</h2>
 
           <div className="max-w-3xl">
-            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6">Performance</h3>
+            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6">{t("navix.specs.performance", lang)}</h3>
             <div className="border-l border-r border-white/10">
               {[
-                ["Accuracy", "20–30m average, 50–60m worst case"],
-                ["Processing", "9 FPS on Raspberry Pi 5"],
-                ["Altitude", "100–1000m"],
-                ["Operation", "Day and night"],
-                ["Retraining", "Not required — works on new terrain out of the box"],
+                [t("navix.specs.accuracy", lang), t("navix.specs.accuracyVal", lang)],
+                [t("navix.specs.processing", lang), t("navix.specs.processingVal", lang)],
+                [t("navix.specs.altitude", lang), "100–1000m"],
+                [t("navix.specs.operation", lang), t("navix.specs.operationVal", lang)],
+                [t("navix.specs.retraining", lang), t("navix.specs.retrainingVal", lang)],
               ].map(([l, v]) => (
                 <div key={l} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
                   <span className="text-neutral-500">{l}</span>
@@ -86,15 +90,15 @@ export default function NaviXPage() {
               ))}
             </div>
 
-            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Integration</h3>
+            <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">{t("navix.specs.integrationTitle", lang)}</h3>
             <div className="border-l border-r border-white/10">
               {[
-                ["Platform", "Raspberry Pi 5"],
-                ["Weight", "<100g"],
-                ["Power", "<15W"],
-                ["Interface", "UART/USB, MAVLink"],
-                ["Map preparation", "<2 min per 10 km²"],
-                ["Compatibility", "Most Ardupilot-based UAVs"],
+                [t("navix.specs.platform", lang), "Raspberry Pi 5"],
+                [t("stabx.specs.weight", lang), "<100g"],
+                [t("stabx.specs.power", lang), "<15W"],
+                [t("navix.specs.interface", lang), "UART/USB, MAVLink"],
+                [t("navix.specs.mapPrep", lang), t("navix.specs.mapPrepVal", lang)],
+                [t("stabx.specs.compatibility", lang), t("stabx.specs.compatibilityVal", lang)],
               ].map(([l, v]) => (
                 <div key={l} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
                   <span className="text-neutral-500">{l}</span>
@@ -110,11 +114,11 @@ export default function NaviXPage() {
       <section id="contact" className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40 text-center">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
-            Join the NaviX Waitlist
+            {t("navix.joinWaitlist", lang)}
           </h2>
-          <p className="text-neutral-500 text-[15px] max-w-md mx-auto mb-10">NaviX is in closed testing with select partners. Request early access.</p>
+          <p className="text-neutral-500 text-[15px] max-w-md mx-auto mb-10">{t("navix.joinDesc", lang)}</p>
           <a href="mailto:business@theacademia.tech?subject=NaviX%20Waitlist" className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors">
-            Request Access
+            {t("navix.requestAccess", lang)}
           </a>
         </div>
       </section>
@@ -135,7 +139,7 @@ export default function NaviXPage() {
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">
-            <p className="text-[13px] text-neutral-400">&copy; 2026 Academia Tech. All rights reserved.</p>
+            <p className="text-[13px] text-neutral-400">{t("footer.rights", lang)}</p>
           </div>
         </div>
       </footer>
