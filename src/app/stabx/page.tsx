@@ -29,22 +29,15 @@ export default function StabXPage() {
         </div>
       </nav>
 
-      {/* ── Hero ── */}
+      {/* ── Hero + Modules ── */}
       <section className="pt-[72px]">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40">
-          <h1 className="text-[clamp(4rem,10vw,9rem)] font-bold tracking-[-0.04em] leading-[0.9] mb-8" style={{ fontFamily: "var(--font-unbounded)" }}>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 pt-20 md:pt-28 pb-28 md:pb-40">
+          <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-[-0.04em] leading-[0.9] mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
             StabX
           </h1>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl leading-relaxed">
-            Optical flight stabilization without GPS, compass, or external signals. A downward-facing camera tracks terrain in real time, fusing optical flow with IMU data. The drone holds position, maintains heading, and returns home autonomously on signal loss. Activates at takeoff and runs parallel to manual control. Security built in: Bluetooth key activation, encrypted software bound to hardware.
+          <p className="text-lg text-neutral-400 max-w-2xl leading-relaxed mb-16">
+            Optical flight stabilization without GPS, compass, or external signals. Tracks terrain in real time, fuses optical flow with IMU data. Holds position, maintains heading, returns home autonomously on signal loss.
           </p>
-        </div>
-      </section>
-
-      {/* ── Modules ── */}
-      <section className="border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-28 md:py-40">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Modules</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {[
@@ -82,8 +75,8 @@ export default function StabXPage() {
                 ],
               },
             ].map((mod) => (
-              <div key={mod.name} style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
-                <div className="flex items-center justify-center py-12">
+              <div key={mod.name} className="bg-[#161616] p-8" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+                <div className="flex items-center justify-center py-8 mb-6">
                   <Image src="/stabx.png" alt={mod.name} width={200} height={150} className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-semibold tracking-[-0.02em] mb-2" style={{ fontFamily: "var(--font-unbounded)" }}>{mod.name}</h3>
@@ -109,44 +102,50 @@ export default function StabXPage() {
 
           <div className="max-w-3xl">
             <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6">Navigation &amp; Autonomy</h3>
-            {[
-              ["Stabilization", "Activates at takeoff, does not interfere with piloting"],
-              ["Azimuth drift", "<1° per 5 min"],
-              ["RTL", "Returns via shortest trajectory (not along flight path)"],
-              ["Return error", "~500m over a 7–8 km flight, terrain dependent"],
-              ["Integration", "4 wires and a few parameters in Ardupilot"],
-            ].map(([label, value]) => (
-              <div key={label} className="flex justify-between py-4 border-t border-white/10 text-[15px]">
-                <span className="text-neutral-500">{label}</span>
-                <span className="text-neutral-200 text-right max-w-sm">{value}</span>
-              </div>
-            ))}
+            <div className="border-l border-r border-white/10">
+              {[
+                ["Stabilization", "Activates at takeoff, does not interfere with piloting"],
+                ["Azimuth drift", "<1° per 5 min"],
+                ["RTL", "Returns via shortest trajectory (not along flight path)"],
+                ["Return error", "~500m over a 7–8 km flight, terrain dependent"],
+                ["Integration", "4 wires and a few parameters in Ardupilot"],
+              ].map(([label, value]) => (
+                <div key={label} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
+                  <span className="text-neutral-500">{label}</span>
+                  <span className="text-neutral-200 text-right max-w-sm">{value}</span>
+                </div>
+              ))}
+            </div>
 
             <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Altitude vs. Horizontal Deviation</h3>
-            {[
-              ["50m", "~1m"],
-              ["200m", "~2m"],
-              ["500m", "~3–5m"],
-              ["1000m", "~10–15m"],
-            ].map(([alt, dev]) => (
-              <div key={alt} className="flex justify-between py-4 border-t border-white/10 text-[15px]">
-                <span className="text-neutral-500">{alt}</span>
-                <span className="text-neutral-200">{dev}</span>
-              </div>
-            ))}
+            <div className="border-l border-r border-white/10">
+              {[
+                ["50m", "~1m"],
+                ["200m", "~2m"],
+                ["500m", "~3–5m"],
+                ["1000m", "~10–15m"],
+              ].map(([alt, dev]) => (
+                <div key={alt} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
+                  <span className="text-neutral-500">{alt}</span>
+                  <span className="text-neutral-200">{dev}</span>
+                </div>
+              ))}
+            </div>
 
             <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Hardware</h3>
-            {[
-              ["Weight", "<100g"],
-              ["Power consumption", "<15W"],
-              ["Security", "Bluetooth key, encrypted, hardware-bound"],
-              ["Compatibility", "Most Ardupilot-based UAVs"],
-            ].map(([label, value]) => (
-              <div key={label} className="flex justify-between py-4 border-t border-white/10 text-[15px]">
-                <span className="text-neutral-500">{label}</span>
-                <span className="text-neutral-200">{value}</span>
-              </div>
-            ))}
+            <div className="border-l border-r border-white/10">
+              {[
+                ["Weight", "<100g"],
+                ["Power consumption", "<15W"],
+                ["Security", "Bluetooth key, encrypted, hardware-bound"],
+                ["Compatibility", "Most Ardupilot-based UAVs"],
+              ].map(([label, value]) => (
+                <div key={label} className="flex justify-between py-4 px-6 border-t border-white/10 last:border-b last:border-white/10 text-[15px]">
+                  <span className="text-neutral-500">{label}</span>
+                  <span className="text-neutral-200 text-right max-w-sm">{value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
