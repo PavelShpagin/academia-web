@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "NaviLoc: GPS-Free Navigation for Drones — Academia Tech",
+  title: "NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation — Academia Tech",
   description:
-    "How we taught drones to know where they are without satellites. NaviLoc combines visual place recognition with inertial sensing for GPS-free UAV navigation.",
+    "NaviLoc matches drone camera images to satellite maps using trajectory-level optimization, achieving 19.5m accuracy without GPS on a Raspberry Pi 5.",
 };
 
 export default function NaviLocPage() {
@@ -14,46 +14,17 @@ export default function NaviLocPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-neutral-200/60">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image
-              src="/logo.png"
-              alt="Academia"
-              width={28}
-              height={28}
-              className="invert"
-            />
-            <span
-              className="text-[17px] font-semibold tracking-[0.04em] uppercase"
-              style={{
-                fontFamily: "var(--font-unbounded), system-ui, sans-serif",
-              }}
-            >
+            <Image src="/logo.png" alt="Academia" width={28} height={28} className="invert" />
+            <span className="text-[17px] font-semibold tracking-[0.04em] uppercase" style={{ fontFamily: "var(--font-unbounded), system-ui, sans-serif" }}>
               Academia
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-10">
-            <Link
-              href="/#platforms"
-              className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200"
-            >
-              Products
-            </Link>
-            <Link
-              href="/#impact"
-              className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200"
-            >
-              Impact
-            </Link>
-            <Link
-              href="/#research"
-              className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200"
-            >
-              Research
-            </Link>
+            <Link href="/#platforms" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Products</Link>
+            <Link href="/#impact" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Impact</Link>
+            <Link href="/#research" className="text-[15px] text-neutral-500 hover:text-black transition-colors duration-200">Research</Link>
           </div>
-          <Link
-            href="/#contact"
-            className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200"
-          >
+          <Link href="/#contact" className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
             Get in touch
           </Link>
         </div>
@@ -63,31 +34,29 @@ export default function NaviLocPage() {
       <header className="pt-[72px]">
         <div className="max-w-3xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-12 md:pb-16">
           <div className="flex items-center gap-3 mb-8">
-            <span className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-400">
-              Research
-            </span>
+            <span className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-400">Research</span>
             <span className="w-1 h-1 rounded-full bg-neutral-300" />
-            <span className="text-[13px] text-neutral-400">March 2026</span>
+            <span className="text-[13px] text-neutral-400">January 2026</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-[-0.03em] leading-[1.1] text-black mb-6">
-            NaviLoc: GPS-Free Navigation for Drones Using Visual Intelligence
+            NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation
           </h1>
 
           <p className="text-xl md:text-2xl text-neutral-500 leading-relaxed font-light mb-10">
-            How we taught drones to know where they are&nbsp;&mdash; without
-            satellites
+            Matching drone cameras to satellite maps &mdash; across the entire flight path, not frame by frame
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pb-10 border-b border-neutral-200">
             <p className="text-[15px] text-neutral-600">Pavel Shpagin, Taras Panchenko</p>
+            <span className="text-[13px] text-neutral-400">Drones (MDPI), Vol. 10, No. 2</span>
             <a
               href="https://www.mdpi.com/2504-446X/10/2/97"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[15px] font-medium text-black hover:text-neutral-600 transition-colors duration-200"
             >
-              Read the full paper on MDPI&nbsp;&rarr;
+              Full paper on MDPI&nbsp;&rarr;
             </a>
           </div>
         </div>
@@ -96,208 +65,117 @@ export default function NaviLocPage() {
       {/* ── Article Body ── */}
       <article className="max-w-3xl mx-auto px-6 md:px-12 pb-24 md:pb-32">
         <div className="space-y-8 text-[17px] leading-[1.8] text-neutral-700">
-          {/* The Problem */}
+
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            The GPS problem nobody talks about
+            The problem
           </h2>
 
           <p>
-            GPS is one of those technologies that works so well, we forget it
-            exists. Until it doesn&rsquo;t. Modern drones rely almost entirely
-            on satellite signals to know where they are, and that dependency has
-            become a serious vulnerability.
+            Drones rely on GPS to know where they are. When GPS signals get jammed or spoofed &mdash; which is now routine in conflict zones &mdash; drones lose their position fix. They can&rsquo;t navigate, can&rsquo;t return home, can&rsquo;t complete their mission.
           </p>
 
           <p>
-            In conflict zones across Ukraine and beyond, GPS jamming and
-            spoofing are now routine. A $50 jammer can knock a $50,000 drone out
-            of the sky. The moment a drone loses its position fix, it
-            can&rsquo;t navigate, can&rsquo;t return home, and can&rsquo;t
-            complete its mission. For operators in active combat, this
-            isn&rsquo;t an inconvenience&nbsp;&mdash; it&rsquo;s a matter of
-            life and death.
+            One alternative: use the drone&rsquo;s camera to match what it sees on the ground against satellite imagery and figure out its location visually. The problem is that at low altitudes (50&ndash;150 meters), the drone&rsquo;s view looks very different from satellite photos. Fields, roads, and buildings repeat across the landscape. A single camera frame can easily match the wrong satellite tile &mdash; the system thinks the drone is in one place when it&rsquo;s actually somewhere else.
           </p>
 
           <p>
-            The question we asked: can a drone figure out where it is just by
-            looking at the ground?
+            Existing methods try to match each frame independently. They fail because of this perceptual aliasing &mdash; too many locations look alike from above.
           </p>
 
-          {/* The Insight */}
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            The ground has a fingerprint
+            What NaviLoc does differently
           </h2>
 
           <p>
-            Here&rsquo;s the core insight behind NaviLoc. The view from above is
-            distinctive. Roads, buildings, fields, rivers&nbsp;&mdash; they form
-            patterns that are unique to each location. And we already have
-            detailed imagery of the Earth&rsquo;s surface from satellites.
+            NaviLoc doesn&rsquo;t trust individual frame matches. Instead, it uses the drone&rsquo;s entire flight trajectory to determine position.
           </p>
 
           <p>
-            So the idea is simple in principle: compare what the drone&rsquo;s
-            camera sees with a map of satellite images, and find the match.
-            It&rsquo;s the same thing a human pilot does instinctively when
-            looking out the window and comparing the terrain to a
-            chart&nbsp;&mdash; except we need an algorithm to do it
-            automatically, hundreds of times per second, under any conditions.
+            The system combines two sources of information. First: visual place recognition (VPR) &mdash; matching camera frames to geo-referenced satellite tiles using deep learning descriptors. These matches are treated as noisy measurements, not ground truth. Second: visual-inertial odometry (VIO) &mdash; tracking relative motion between frames using the camera and an IMU (accelerometer + gyroscope). VIO is accurate for short distances but drifts over time.
           </p>
 
-          {/* How It Works */}
+          <p>
+            Neither source is reliable alone. VPR gives approximate global position but frequently matches wrong tiles. VIO gives precise relative motion but accumulates drift. NaviLoc fuses them across the full trajectory so their errors cancel out.
+          </p>
+
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            How NaviLoc works
+            Three stages
           </h2>
 
           <p>
-            The system has two phases: preparation and flight.
+            <strong className="text-black">Stage 1 &mdash; Global Align.</strong>{" "}
+            The VIO trajectory exists in a local coordinate frame &mdash; the drone knows how it moved, but not where in the world it started or which direction it was facing. Stage 1 finds the rotation, translation, and scale that best align this local trajectory to the satellite map. It does this by scanning candidate rotations, computing a robust median translation for each, and picking the alignment where the most camera frames match nearby satellite tiles. The median makes this robust: even if half the frame matches are wrong, the correct ones still dominate.
           </p>
 
           <p>
-            <strong className="text-black">Before the flight</strong>, we
-            download satellite imagery of the operating area and split it into a
-            grid of tiles. A deep learning model processes each tile, extracting
-            a compact numerical &ldquo;fingerprint&rdquo;&nbsp;&mdash; a summary
-            of its visual features. These fingerprints are stored in a reference
-            database. Think of it as building a visual dictionary of the
-            terrain.
+            <strong className="text-black">Stage 2 &mdash; Refinement.</strong>{" "}
+            The global alignment from Stage 1 is coarse. Stage 2 slides a window along the trajectory and applies local geometric corrections using weighted Procrustes analysis. Each window recomputes which satellite tiles best match the camera frames at the current estimated positions, then adjusts the local trajectory segment. A rotation bound prevents overcorrection from noisy matches. Multiple passes converge in 2&ndash;3 iterations.
           </p>
 
           <p>
-            <strong className="text-black">During flight</strong>, the
-            drone&rsquo;s downward-facing camera captures frames continuously.
-            Each frame goes through the same deep learning model, producing its
-            own fingerprint. The system then searches the reference database for
-            the closest match. When it finds one, it knows which tile the drone
-            is above&nbsp;&mdash; and therefore its approximate location.
+            <strong className="text-black">Stage 3 &mdash; Smoothing.</strong>{" "}
+            The final stage formulates a convex optimization problem that fuses VIO motion constraints with the refined position anchors from Stage 2. It detects outlier anchors using z-scores on their visual similarity &mdash; if a match looks statistically worse than the others, it gets clamped to the VIO prior instead. The result is a closed-form linear solve that produces the final trajectory estimate.
           </p>
 
-          <p>
-            But a single visual match isn&rsquo;t enough. Satellite imagery and
-            live camera feeds look different&nbsp;&mdash; lighting changes,
-            seasonal variation, altitude differences, and camera angle all
-            introduce noise. Any individual match could be wrong. This is where
-            NaviLoc gets clever.
-          </p>
-
-          {/* Why Trajectory Matters */}
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            Why the whole trajectory matters
+            Satellite map preparation
           </h2>
 
           <p>
-            The key innovation in NaviLoc is that it doesn&rsquo;t trust any
-            single frame. Instead, it fuses visual matches with motion data from
-            the drone&rsquo;s onboard sensors&nbsp;&mdash; accelerometers and
-            gyroscopes that track how the drone moves between frames.
+            Before flight, satellite imagery of the operating area is downloaded and divided into a grid of tiles (40m spacing in our benchmark). Each tile is processed through a Vision Transformer (DeiT-Tiny-Distilled) to extract a 192-dimensional descriptor &mdash; a compact numerical fingerprint of its visual content. These are stored in a reference database. On our benchmark, 462 tiles cover 1.6 km&sup2; at 0.3 m/pixel resolution.
           </p>
 
           <p>
-            Imagine you&rsquo;re lost in a city. A single glance at a building
-            might not tell you where you are. But if you walk three blocks
-            north, turn right, walk two more, and see a park&nbsp;&mdash;
-            suddenly you can narrow it down. NaviLoc works the same way. It
-            combines the sequence of visual observations with known motion to
-            build a probabilistic picture of where the drone is and has been.
+            During flight, the same model processes each camera frame to produce its descriptor. Matching is then a nearest-neighbor search in descriptor space &mdash; fast enough to run in real time on embedded hardware.
           </p>
 
-          <p>
-            This is done through statistical filtering&nbsp;&mdash;
-            specifically, a technique that continuously weighs the confidence of
-            visual matches against motion estimates. When a visual match is
-            strong (the terrain is distinctive), the system trusts it more. When
-            the terrain is ambiguous (say, a uniform field), it leans on the
-            motion data. Over time, the errors cancel out and the position
-            estimate converges.
-          </p>
-
-          <p>
-            The result: even when individual frames get matched to the wrong
-            tile, the overall trajectory stays on track.
-          </p>
-
-          {/* Results */}
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            What we achieved
+            Results
           </h2>
 
           <p>
-            We tested NaviLoc across multiple flight paths covering over a
-            kilometer each, at altitudes between 50 and 100 meters. The results:
+            We evaluated NaviLoc on a real-world benchmark: 58 frames from a 2.3 km flight over rural terrain in Ukraine at 50&ndash;150m altitude. The terrain is challenging &mdash; repetitive agricultural fields and village patterns with few distinctive landmarks.
           </p>
 
           <ul className="list-none space-y-4 pl-0">
             {[
-              [
-                "19.5m mean localization error",
-                "Over full trajectories exceeding 1 km — a 16x improvement over the previous state-of-the-art.",
-              ],
-              [
-                "32x better than raw VIO drift",
-                "Visual anchors dramatically correct the accumulated drift of inertial sensors alone.",
-              ],
-              [
-                "9 FPS on a Raspberry Pi 5",
-                "The full pipeline runs on edge hardware in real time, no cloud connection needed.",
-              ],
-              [
-                "Day and night operation",
-                "The visual features are robust enough to work across lighting conditions.",
-              ],
+              ["19.5m mean localization error", "Over a 2.3 km trajectory. 16x more accurate than the previous best method (AnyLoc-VLAD, 312m)."],
+              ["32x better than raw VIO drift", "VIO alone drifted to 627m error. NaviLoc corrects this to under 20m."],
+              ["9 FPS on Raspberry Pi 5", "End-to-end inference on a $80 single-board computer. No GPU, no cloud, no internet required."],
+              ["Training-free", "Uses off-the-shelf pretrained descriptors. No domain-specific fine-tuning needed for new areas."],
             ].map(([title, desc]) => (
               <li key={title} className="flex gap-3">
                 <span className="mt-[10px] w-1.5 h-1.5 rounded-full bg-black shrink-0" />
                 <span>
-                  <strong
-                    className="text-black"
-                    dangerouslySetInnerHTML={{ __html: title }}
-                  />
-                  <span className="text-neutral-500">
-                    {" "}
-                    &mdash; {desc}
-                  </span>
+                  <strong className="text-black">{title}</strong>
+                  <span className="text-neutral-500"> &mdash; {desc}</span>
                 </span>
               </li>
             ))}
           </ul>
 
           <p>
-            To put this in context: under 20 meters of accuracy at 50&ndash;100
-            meters altitude, with no GPS, no internet, running on a
-            credit-card-sized computer. Sixteen times more accurate than the previous
-            best method. The drone always knows where it is, even when every
-            satellite signal is jammed.
+            To put this in context: 19.5 meters of accuracy over a multi-kilometer flight, at low altitude, over visually repetitive rural terrain, with no GPS, running on a credit-card-sized computer. The previous state-of-the-art scored 312 meters on the same benchmark.
           </p>
 
-          {/* What It Means */}
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            From research to product
+            Why it matters
           </h2>
 
           <p>
-            NaviLoc is a published research contribution. It validates that
-            vision-based localization can work reliably in real conditions and on
-            constrained hardware. But research papers don&rsquo;t fly
-            drones&nbsp;&mdash; products do.
+            The core contribution is the trajectory-level approach. Existing methods match frames independently and fail when individual matches are ambiguous. NaviLoc shows that by treating visual matches as noisy measurements and fusing them with motion data across the full flight path, you can get reliable positioning even when most individual matches would be wrong.
           </p>
 
           <p>
-            The techniques demonstrated in NaviLoc are the foundation of{" "}
-            <Link
-              href="/navix"
-              className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200"
-            >
+            The algorithm is lightweight and training-free &mdash; it works with any pretrained image descriptor, on any terrain, without collecting domain-specific training data. This makes it practical to deploy in new areas without preparation beyond downloading satellite imagery.
+          </p>
+
+          <p>
+            NaviLoc is the research foundation behind{" "}
+            <Link href="/navix" className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
               NaviX
             </Link>
-            , our GPS-free navigation system currently in closed testing. NaviX
-            takes the core algorithms further&nbsp;&mdash; optimizing them for
-            production hardware, expanding the environmental envelope, and
-            integrating with real autopilot systems.
-          </p>
-
-          <p>
-            The goal is straightforward: no drone should ever be grounded
-            because someone flipped on a jammer.
+            , our GPS-free navigation product currently in closed testing. NaviX takes these algorithms further &mdash; optimizing for production hardware, expanding the environmental envelope, and integrating with real autopilot systems.
           </p>
         </div>
 
@@ -305,18 +183,12 @@ export default function NaviLocPage() {
         <div className="mt-20 pt-12 border-t border-neutral-200">
           <p className="text-lg text-neutral-600 leading-relaxed mb-6">
             NaviLoc powers{" "}
-            <Link
-              href="/navix"
-              className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200"
-            >
+            <Link href="/navix" className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
               NaviX
             </Link>
             , our GPS-free navigation product currently in closed testing.
           </p>
-          <Link
-            href="/navix"
-            className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200"
-          >
+          <Link href="/navix" className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
             Learn about NaviX&nbsp;&rarr;
           </Link>
         </div>
@@ -327,40 +199,18 @@ export default function NaviLocPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-20">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-16">
             <div className="flex items-center gap-2.5">
-              <Image
-                src="/logo.png"
-                alt="Academia"
-                width={24}
-                height={24}
-                className="invert"
-              />
-              <span
-                className="text-[15px] font-semibold tracking-[0.04em] uppercase"
-                style={{
-                  fontFamily: "var(--font-unbounded), system-ui, sans-serif",
-                }}
-              >
+              <Image src="/logo.png" alt="Academia" width={24} height={24} className="invert" />
+              <span className="text-[15px] font-semibold tracking-[0.04em] uppercase" style={{ fontFamily: "var(--font-unbounded), system-ui, sans-serif" }}>
                 Academia
               </span>
             </div>
             <div className="flex flex-wrap gap-8 text-[14px] text-neutral-400">
-              {["Privacy", "Terms", "Security", "Compliance", "Careers"].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href="#"
-                    className="hover:text-black transition-colors duration-200"
-                  >
-                    {link}
-                  </a>
-                )
-              )}
+              <a href="mailto:business@theacademia.tech" className="hover:text-black transition-colors duration-200">business@theacademia.tech</a>
+              <a href="mailto:sales@theacademia.tech" className="hover:text-black transition-colors duration-200">sales@theacademia.tech</a>
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">
-            <p className="text-[13px] text-neutral-400">
-              &copy; 2026 Academia. All rights reserved.
-            </p>
+            <p className="text-[13px] text-neutral-400">&copy; 2026 Academia Tech. All rights reserved.</p>
           </div>
         </div>
       </footer>
