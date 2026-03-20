@@ -66,9 +66,9 @@ export default function StabXPage() {
                 icon: "both" as const,
               },
             ].map((mod) => (
-              <div key={mod.name} className="relative bg-[#161616] p-8" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
-                {/* Mode icon — bottom right, behind content */}
-                <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 opacity-10 pointer-events-none">
+              <div key={mod.name} className="relative bg-[#161616] p-6 md:p-8 pb-8 md:pb-10" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+                {/* Mode icon — top right, behind content */}
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-10 pointer-events-none">
                   {mod.icon === "day" && (
                     <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="5" />
