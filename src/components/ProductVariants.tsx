@@ -57,14 +57,10 @@ export function Products2() {
         <Link href="/stabx" className="group block bg-[#111] p-10 md:p-14 mb-6" style={{ clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
+              <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">Deployed</span>
+              <h3 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
               <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Optical Stabilization</p>
-              <h3 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-6 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
               <p className="text-neutral-400 text-[16px] leading-relaxed mb-8 max-w-lg">GPS-free flight stabilization trusted by 700+ Armed Forces units. Day and night variants. Compatible with most Ardupilot-based UAVs.</p>
-              <div className="flex gap-8 text-[13px] text-neutral-500 mb-8">
-                <div><span className="text-neutral-300 block text-lg font-semibold">700+</span>units deployed</div>
-                <div><span className="text-neutral-300 block text-lg font-semibold">47</span>integrations</div>
-                <div><span className="text-neutral-300 block text-lg font-semibold">&lt;100g</span>weight</div>
-              </div>
               <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">View modules &rarr;</span>
             </div>
             <div className="flex justify-center">
