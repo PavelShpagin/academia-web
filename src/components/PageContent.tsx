@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import UnitMarquee from "./UnitMarquee";
+import MobileMenu from "./MobileMenu";
 import { Impact1 } from "./ImpactVariants";
 import { Research1 } from "./ResearchVariants";
 import { Products2 } from "./ProductVariants";
@@ -36,10 +37,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           <a href="#contact" className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
             Get in touch
           </a>
-          {/* Mobile: compact get in touch */}
-          <a href="#contact" className="md:hidden inline-flex items-center h-8 px-3 text-[12px] font-medium bg-black text-white">
-            Contact
-          </a>
+          <MobileMenu />
         </div>
       </nav>
 
@@ -53,8 +51,8 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           </div>
           {/* Drone — mobile/tablet: top area */}
           <div className="absolute inset-0 lg:hidden">
-            <Image src="/drone.png" alt="" fill className="object-contain object-[40%_30%]" priority />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white" />
+            <Image src="/drone.png" alt="" fill className="object-contain object-[30%_30%]" priority />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0">
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
