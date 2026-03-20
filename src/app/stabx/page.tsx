@@ -44,35 +44,20 @@ export default function StabXPage() {
               {
                 name: "StabX Day",
                 desc: "Daytime optical stabilization using visible-light camera.",
-                specs: [
-                  ["Camera", "Visible light"],
-                  ["Altitude", "50–1000m"],
-                  ["Drift", "<1°/5 min"],
-                  ["Weight", "<100g"],
-                  ["Power", "<15W"],
-                ],
+                camera: "Visible light",
+                buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4710/",
               },
               {
                 name: "StabX Night",
                 desc: "Thermal imaging stabilization for night and low-visibility operations.",
-                specs: [
-                  ["Camera", "Thermal"],
-                  ["Altitude", "50–1000m"],
-                  ["Drift", "<1°/5 min"],
-                  ["Weight", "<100g"],
-                  ["Power", "<15W"],
-                ],
+                camera: "Thermal",
+                buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4646/",
               },
               {
                 name: "StabX Day+Night",
                 desc: "Combined visible and thermal module for 24-hour operation.",
-                specs: [
-                  ["Camera", "Visible + Thermal"],
-                  ["Altitude", "50–1000m"],
-                  ["Drift", "<1°/5 min"],
-                  ["Weight", "<100g"],
-                  ["Power", "<15W"],
-                ],
+                camera: "Visible + Thermal",
+                buyUrl: null,
               },
             ].map((mod) => (
               <div key={mod.name} className="bg-[#161616] p-8" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
@@ -81,14 +66,20 @@ export default function StabXPage() {
                 </div>
                 <h3 className="text-2xl font-semibold tracking-[-0.02em] mb-2" style={{ fontFamily: "var(--font-unbounded)" }}>{mod.name}</h3>
                 <p className="text-neutral-400 text-[15px] mb-6">{mod.desc}</p>
-                <div className="space-y-0">
-                  {mod.specs.map(([label, value]) => (
-                    <div key={label} className="flex justify-between py-3 border-t border-white/10 text-[14px]">
-                      <span className="text-neutral-500">{label}</span>
-                      <span className="text-neutral-200">{value}</span>
-                    </div>
-                  ))}
+                <div className="flex justify-between py-3 border-t border-white/10 text-[14px]">
+                  <span className="text-neutral-500">Camera</span>
+                  <span className="text-neutral-200">{mod.camera}</span>
                 </div>
+                {mod.buyUrl && (
+                  <a
+                    href={mod.buyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-6 text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors duration-200"
+                  >
+                    Buy on Brave1 &rarr;
+                  </a>
+                )}
               </div>
             ))}
           </div>
