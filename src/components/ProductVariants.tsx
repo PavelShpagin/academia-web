@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import * as i18n from "@/lib/i18n";
 
 /* ── Variant 1: Current — 3 equal cut-corner cards ── */
 export function Products1() {
@@ -48,41 +49,40 @@ export function Products1() {
 }
 
 /* ── Variant 2: StabX hero card large, NaviX + SupportBot smaller below ── */
-export function Products2() {
+export function Products2({ lang = "en", supportbotUrl = "https://supportbot.info" }: { lang?: string; supportbotUrl?: string }) {
+  const l = lang as import("@/lib/i18n").Lang;
   return (
     <section id="platforms" className="bg-black text-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Products</h2>
-        {/* StabX — large featured */}
-        <Link href="/stabx" className="group block bg-[#111] p-6 md:p-10 lg:p-14 mb-6" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">{i18n.t("products.title", l)}</h2>
+        <Link href={`/stabx${lang === "uk" ? "?lang=uk" : ""}`} className="group block bg-[#111] p-6 md:p-10 lg:p-14 mb-6" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <div>
-              <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">Flagship</span>
+              <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">{i18n.t("products.flagship", l)}</span>
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>StabX</h3>
-              <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Optical Stabilization</p>
-              <p className="text-neutral-400 text-[16px] leading-relaxed mb-8 max-w-lg">GPS-free flight stabilization trusted by 700+ Armed Forces units. Day and night variants. Compatible with most Ardupilot-based UAVs.</p>
-              <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">View modules &rarr;</span>
+              <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">{i18n.t("products.stabx.tag", l)}</p>
+              <p className="text-neutral-400 text-[16px] leading-relaxed mb-8 max-w-lg">{i18n.t("products.stabx.desc", l)}</p>
+              <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.stabx.cta", l)} &rarr;</span>
             </div>
             <div className="flex justify-center">
               <Image src="/stabx.png" alt="StabX" width={340} height={240} className="object-contain max-w-[240px] md:max-w-[340px]" />
             </div>
           </div>
         </Link>
-        {/* NaviX + SupportBot */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/navix" className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
-            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-6">In Testing</span>
+          <Link href={`/navix${lang === "uk" ? "?lang=uk" : ""}`} className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
+            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-6">{i18n.t("products.inTesting", l)}</span>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
-            <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Visual Navigation</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">AI-powered GPS-free navigation matching camera imagery with satellite maps. 20–30m accuracy on Raspberry Pi 5.</p>
-            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Join waitlist &rarr;</span>
+            <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">{i18n.t("products.navix.tag", l)}</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.navix.desc", l)}</p>
+            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.navix.cta", l)} &rarr;</span>
           </Link>
-          <a href="https://supportbot.info" target="_blank" rel="noopener noreferrer" className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
-            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">Live</span>
+          <a href={supportbotUrl} target="_blank" rel="noopener noreferrer" className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
+            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">{i18n.t("products.live", l)}</span>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
-            <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Automated Technical Support</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">Automated technical support bot in Signal powering StabX customer service. Deployable to any product&apos;s support workflow.</p>
-            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Open SupportBot &rarr;</span>
+            <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">{i18n.t("products.supportbot.tag", l)}</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.supportbot.desc", l)}</p>
+            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.supportbot.cta", l)} &rarr;</span>
           </a>
         </div>
       </div>

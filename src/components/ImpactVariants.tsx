@@ -1,18 +1,18 @@
 import Image from "next/image";
-
-const stats = [
-  { value: "700+", label: "Armed Forces of Ukraine units running StabX" },
-  { value: "47", label: "UAV companies with StabX integrated into their platforms" },
-  { value: "4", label: "Retranslator codifications in progress with top-tier manufacturers" },
-  { value: "Brave1", label: "StabX modules listed on the Brave1 defense marketplace" },
-];
+import { Lang, t } from "@/lib/i18n";
 
 /* ── Variant 1: Large numbers with descriptions in a 2x2 grid ── */
-export function Impact1() {
+export function Impact1({ lang = "en" }: { lang?: Lang }) {
+  const stats = [
+    { value: t("impact.stat1.value", lang), label: t("impact.stat1.label", lang) },
+    { value: t("impact.stat2.value", lang), label: t("impact.stat2.label", lang) },
+    { value: t("impact.stat3.value", lang), label: t("impact.stat3.label", lang) },
+    { value: t("impact.stat4.value", lang), label: t("impact.stat4.label", lang) },
+  ];
   return (
     <section id="impact" className="bg-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-black mb-20">Impact</h2>
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] text-black mb-20">{t("impact.title", lang)}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
           {stats.map((stat) => (
             <div key={stat.value} className="border-t-2 border-black pt-8">
@@ -25,6 +25,13 @@ export function Impact1() {
     </section>
   );
 }
+
+const stats = [
+  { value: "700+", label: "Armed Forces of Ukraine units running StabX" },
+  { value: "47", label: "UAV companies with StabX integrated into their platforms" },
+  { value: "4", label: "Retranslator codifications in progress with top-tier manufacturers" },
+  { value: "Brave1", label: "StabX modules listed on the Brave1 defense marketplace" },
+];
 
 /* ── Variant 2: Horizontal scroll cards on dark bg ── */
 export function Impact2() {

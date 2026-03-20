@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Lang, t } from "@/lib/i18n";
 
 const papers = [
   {
@@ -12,19 +13,20 @@ const papers = [
 ];
 
 /* ── Variant 1: Minimal list — title + arrow, one line per paper ── */
-export function Research1() {
+export function Research1({ lang = "en" }: { lang?: Lang }) {
+  const q = lang === "uk" ? "?lang=uk" : "";
   return (
     <section id="research" className="bg-black text-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Research</h2>
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">{t("research.title", lang)}</h2>
         <div className="space-y-0">
           {papers.map((p) => (
-            <Link key={p.title} href={p.href} className="group block border-t-2 border-white/20 pt-8 pb-12">
+            <Link key={p.title} href={`${p.href}${q}`} className="group block border-t-2 border-white/20 pt-8 pb-12">
               <div className="flex items-start justify-between gap-8">
                 <div>
                   <p className="text-[12px] font-medium tracking-wide uppercase text-neutral-500 mb-3">{p.tag} · {p.authors}</p>
                   <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4 group-hover:text-neutral-300 transition-colors">{p.title}</h3>
-                  <p className="text-[15px] text-neutral-400 leading-relaxed max-w-2xl">{p.desc}</p>
+                  <p className="text-[15px] text-neutral-400 leading-relaxed max-w-2xl">{t("research.naviloc.desc", lang)}</p>
                 </div>
                 <span className="text-neutral-600 group-hover:text-white transition-colors text-2xl mt-2 shrink-0">&rarr;</span>
               </div>

@@ -3,10 +3,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
-export default function MobileMenu() {
+export default function MobileMenu({ lang = "en" }: { lang?: string }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const q = lang === "uk" ? "?lang=uk" : "";
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -15,7 +16,11 @@ export default function MobileMenu() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const href = (anchor: string) => isHome ? `#${anchor}` : `/#${anchor}`;
+  const href = (anchor: string) => isHome ? `#${anchor}` : `/${q}#${anchor}`;
+
+  const labels = lang === "uk"
+    ? { products: "Продукти", impact: "Результати", research: "Дослідження", cta: "Зв'язатися" }
+    : { products: "Products", impact: "Impact", research: "Research", cta: "Get in touch" };
 
   return (
     <div className="md:hidden">
@@ -30,18 +35,16 @@ export default function MobileMenu() {
           <span className={`absolute left-0 right-0 h-[2px] bg-black transition-all duration-300 ease-in-out origin-center ${open ? "top-[6px] -rotate-45" : "top-[12px]"}`} />
         </div>
       </button>
-      {/* Overlay */}
       <div
         className={`fixed inset-0 top-[72px] z-40 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ backgroundColor: "rgba(0,0,0,0.15)", WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)" }}
         onClick={close}
       />
-      {/* Menu panel */}
       <div className={`absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 overflow-hidden z-50 transition-all duration-300 ease-out ${open ? "max-h-64 py-6 opacity-100" : "max-h-0 py-0 opacity-0"}`}>
         {[
-          { label: "Products", anchor: "platforms" },
-          { label: "Impact", anchor: "impact" },
-          { label: "Research", anchor: "research" },
+          { label: labels.products, anchor: "platforms" },
+          { label: labels.impact, anchor: "impact" },
+          { label: labels.research, anchor: "research" },
         ].map((item, i) => (
           <a
             key={item.label}
@@ -59,7 +62,7 @@ export default function MobileMenu() {
           className="inline-flex items-center justify-center h-10 px-5 mt-2 text-[14px] font-medium bg-black text-white hover:bg-neutral-800 transition-all duration-300"
           style={{ transitionDelay: open ? "150ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
         >
-          Get in touch
+          {labels.cta}
         </a>
       </div>
     </div>
