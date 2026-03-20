@@ -84,14 +84,18 @@ export default function StabXPage() {
                     </svg>
                   )}
                   {mod.icon === "both" && (
-                    <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="4" />
-                      <line x1="12" y1="2" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22" />
-                      <line x1="5.22" y1="5.22" x2="6.64" y2="6.64" /><line x1="17.36" y1="17.36" x2="18.78" y2="18.78" />
-                      <line x1="2" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22" y2="12" />
-                      <line x1="5.22" y1="18.78" x2="6.64" y2="17.36" /><line x1="17.36" y1="6.64" x2="18.78" y2="5.22" />
-                      <path d="M36 12.79A7 7 0 1 1 28.21 5 5.5 5.5 0 0 0 36 12.79z" />
-                    </svg>
+                    <div className="flex gap-2">
+                      <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                      </svg>
+                      <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                      </svg>
+                    </div>
                   )}
                 </div>
                 <div className="flex items-center justify-center py-8 mb-6">
