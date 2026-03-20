@@ -47,7 +47,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           {/* Drone — desktop: absolute right */}
           <div className="absolute right-[14%] top-[15%] bottom-[15%] w-[42%] hidden lg:block">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
-            <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white from-5% via-white/50 via-25% to-transparent to-55%" />
           </div>
           {/* Drone — mobile/tablet: centered between navbar and text */}
           <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden">
@@ -55,7 +55,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
             {/* Gradient behind text, above drone — mobile only */}
-            <div className="absolute -inset-x-6 -bottom-12 -top-32 lg:hidden pointer-events-none -z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 40%, rgba(255,255,255,0.95) 55%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.4) 80%, transparent 90%)" }} />
+            <div className="absolute -inset-x-6 -bottom-12 -top-40 lg:hidden pointer-events-none -z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 35%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.3) 80%, transparent 90%)" }} />
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
