@@ -54,7 +54,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
           </div>
           {/* Gradient: white fading up from text into drone — mobile only */}
-          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden pointer-events-none z-[1]" />
+          <div className="absolute bottom-0 left-0 right-0 h-[70%] lg:hidden pointer-events-none z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 30%, rgba(255,255,255,0.9) 45%, rgba(255,255,255,0.5) 60%, transparent 100%)" }} />
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
