@@ -160,6 +160,7 @@ export default function StabXPage() {
             <h3 className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-6 mt-16">Hardware</h3>
             <div className="border-l border-r border-white/10">
               {[
+                ["Working altitude", "50–1000m"],
                 ["Weight", "<100g"],
                 ["Power consumption", "<15W"],
                 ["Security", "Bluetooth key, encrypted, hardware-bound"],
