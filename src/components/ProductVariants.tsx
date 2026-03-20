@@ -52,7 +52,7 @@ export function Products2() {
   return (
     <section id="platforms" className="bg-black text-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Three products. One mission.</h2>
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Products</h2>
         {/* StabX — large featured */}
         <Link href="/stabx" className="group block bg-[#111] p-10 md:p-14 mb-6" style={{ clipPath: "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
