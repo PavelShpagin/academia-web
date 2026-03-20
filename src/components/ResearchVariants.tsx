@@ -3,8 +3,8 @@ import Link from "next/link";
 const papers = [
   {
     tag: "Drones (MDPI) · 2026",
-    title: "NaviLoc: GPS-Free Navigation for Drones Using Visual Intelligence",
-    desc: "Trajectory-level visual localization achieving 19.5m accuracy without GPS, running at 9 FPS on a Raspberry Pi 5.",
+    title: "NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation",
+    desc: "Matching drone cameras to satellite maps across the entire flight path — 19.5m accuracy, 16x improvement over state-of-the-art, 9 FPS on Raspberry Pi 5.",
     href: "/research/naviloc",
     externalHref: "https://www.mdpi.com/2504-446X/10/2/97",
     authors: "P. Shpagin, T. Panchenko",
@@ -16,18 +16,18 @@ export function Research1() {
   return (
     <section id="research" className="bg-black text-white py-28 md:py-40">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-6">Research</h2>
-        <p className="text-neutral-400 text-[15px] leading-relaxed max-w-xl mb-16">
-          We publish what we discover. Tight collaboration with academic institutions producing both proprietary products and peer-reviewed novelty.
-        </p>
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] mb-20">Research</h2>
         <div className="space-y-0">
           {papers.map((p) => (
-            <Link key={p.title} href={p.href} className="group flex items-center justify-between py-6 border-t border-white/10 last:border-b last:border-white/10">
-              <div>
-                <p className="text-[11px] font-medium tracking-wide uppercase text-neutral-500 mb-1">{p.tag}</p>
-                <p className="text-lg md:text-xl font-medium group-hover:text-neutral-300 transition-colors">{p.title}</p>
+            <Link key={p.title} href={p.href} className="group block border-t-2 border-white/20 pt-8 pb-12">
+              <div className="flex items-start justify-between gap-8">
+                <div>
+                  <p className="text-[12px] font-medium tracking-wide uppercase text-neutral-500 mb-3">{p.tag} · {p.authors}</p>
+                  <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-4 group-hover:text-neutral-300 transition-colors">{p.title}</h3>
+                  <p className="text-[15px] text-neutral-400 leading-relaxed max-w-2xl">{p.desc}</p>
+                </div>
+                <span className="text-neutral-600 group-hover:text-white transition-colors text-2xl mt-2 shrink-0">&rarr;</span>
               </div>
-              <span className="text-neutral-600 group-hover:text-white transition-colors text-xl ml-8">&rarr;</span>
             </Link>
           ))}
         </div>
