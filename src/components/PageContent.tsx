@@ -45,12 +45,12 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
         <div className="relative flex-1 flex items-end lg:items-center overflow-hidden pt-[72px]">
           {/* Drone — desktop: absolute right */}
-          <div className="absolute right-[10%] top-[10%] bottom-[10%] w-[48%] hidden lg:block xl:right-[14%] xl:top-[15%] xl:bottom-[15%] xl:w-[42%]">
+          <div className="absolute right-[5%] top-[5%] bottom-[5%] w-[55%] hidden lg:block xl:right-[10%] xl:top-[10%] xl:bottom-[10%] xl:w-[48%]">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-5% via-white/50 via-25% to-transparent to-55%" />
           </div>
           {/* Drone — mobile/tablet: centered between navbar and text */}
-          <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden">
+          <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden pointer-events-none">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
