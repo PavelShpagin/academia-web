@@ -22,10 +22,14 @@ const unbounded = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "Academia",
+  title: "Academia Tech",
   description: "UAV innovation on front lines",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 

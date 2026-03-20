@@ -1,0 +1,68 @@
+Academia Tech builds solutions you can deploy fast — then scale into a production series.
+
+What we offer:
+✅ B2B software licensing
+Integrate into your stack / platform / onboard hardware.
+
+✅ B2B modules with our software (day/night)
+A true plug & play option for rapid fielding.
+
+📌 Brave1 Market:
+StabX Day module: https://lnkd.in/di5cbJjz
+StabX Night module: https://lnkd.in/dB832HPR
+
+Best fit for:
+• drone OEMs
+• integrators and R&D teams
+• units adopting solutions via a manufacturer/partner
+
+If you’re an OEM or integrator — reach out. We’ll recommend the right path for your program timeline: licensing or modules.
+
+📩 Contacts:
+Collaboration, inquiries, questions: business@theacademia.tech
+To purchase modules: sales@theacademia.tech
+
+
+
+
+Academia StabX is optical flight stabilization for UAVs, operating day and night without GPS, compass, or external signals.
+
+Here's how it works.
+
+A downward-facing camera tracks terrain features in real time, computing optical flow — the apparent motion of ground patterns between frames — and fusing this with IMU data to derive velocity and position. Heading is maintained through visual odometry alone. The result is a drone that holds position, maintains orientation, and navigates home entirely through what it sees.
+
+StabX activates at takeoff and runs parallel to manual control — pilots fly normally, the system intervenes only when needed. On signal loss, RTL engages automatically via the shortest trajectory to the operator.
+
+Security is built in: activation requires a Bluetooth key, software is encrypted and bound to specific hardware. If a drone is lost, the system doesn't work for anyone else.
+
+Why this matters.
+
+StabX automates the hardest parts of UAV operation — reducing operator workload, increasing mission success rate, and making complex flight accessible to any pilot.
+
+The system is deployed with hundreds of Armed Forces of Ukraine units across dozens of platforms — reconnaissance, relay, strike — operating daily in the most demanding operational environment on the planet. What works here will work anywhere.
+
+We're preparing to expand from Ukraine to Europe and the United States. Our roadmap is clear: StabX will support any platform, any mission, any operator.
+
+🎄 Happy New Year, 2026!
+
+This year was about resilience.
+About precision—where mistakes cost too much.
+About people who don’t give up, even in the hardest conditions.
+
+Academia Tech was founded in 2025.
+And it’s not just about developing technological solutions.
+It’s daily work for those who keep the sky, communications, and lives together.
+
+Our StabX flight-stabilization solution:
+ — is used by hundreds of Ukrainian Armed Forces units
+ — is integrated into dozens of UAV platforms with different missions
+ — is going through the path of certification and scaling
+ — and, most importantly, proves that complex technologies can be accessible, reliable, and Ukrainian
+
+In 2026, as we continue developing NaviX, we move forward with a clear goal:
+🔹 automate navigation in GPS-denied environments
+🔹 reduce operator workload through assisted control
+🔹 ensure stable and predictable flight behavior
+
+Thank you to everyone who stands with us: engineers, pilots, partners, and defenders.
+This is a shared journey—and it’s only just beginning.
