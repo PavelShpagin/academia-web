@@ -49,9 +49,9 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
           </div>
-          {/* Drone — mobile/tablet: top-left, partially off-screen */}
-          <div className="absolute -left-[15%] top-0 bottom-0 w-[130%] lg:hidden">
-            <Image src="/drone.png" alt="" fill className="object-contain object-[20%_25%]" priority />
+          {/* Drone — mobile/tablet: top-left, smaller and shifted */}
+          <div className="absolute -left-[25%] top-[5%] w-[90%] h-[50%] lg:hidden">
+            <Image src="/drone.png" alt="" fill className="object-contain object-left-top" priority />
           </div>
           {/* Gradient: white fading up from text into drone — mobile only */}
           <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden pointer-events-none z-[1]" />
