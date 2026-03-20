@@ -74,14 +74,14 @@ export function Products2() {
             <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-6">In Testing</span>
             <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Visual Navigation</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">AI-powered GPS-free navigation matching camera imagery with satellite maps. 19.5m accuracy on Raspberry Pi 5.</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">AI-powered GPS-free navigation matching camera imagery with satellite maps. 20–30m accuracy on Raspberry Pi 5.</p>
             <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Join waitlist &rarr;</span>
           </Link>
           <a href="https://supportbot.info" target="_blank" rel="noopener noreferrer" className="group block bg-[#111] p-8 md:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}>
             <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">Live</span>
             <h3 className="text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">Automated Technical Support</p>
-            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">24/7 AI-powered support for StabX operators and integrators. Instant answers via Signal.</p>
+            <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">Automated technical support bot powering StabX customer service. Deployable to any product&apos;s support workflow.</p>
             <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">Open SupportBot &rarr;</span>
           </a>
         </div>
