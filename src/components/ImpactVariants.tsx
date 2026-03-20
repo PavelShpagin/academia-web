@@ -16,7 +16,7 @@ export function Impact1() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
           {stats.map((stat) => (
             <div key={stat.value} className="border-t-2 border-black pt-8">
-              <p className="text-6xl md:text-7xl font-bold tracking-[-0.04em] text-black mb-3">{stat.value}</p>
+              <p className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] text-black mb-3">{stat.value}</p>
               <p className="text-[17px] text-neutral-500 leading-relaxed">{stat.label}</p>
             </div>
           ))}

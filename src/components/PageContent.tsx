@@ -36,29 +36,38 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
           <a href="#contact" className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
             Get in touch
           </a>
+          {/* Mobile: compact get in touch */}
+          <a href="#contact" className="md:hidden inline-flex items-center h-8 px-3 text-[12px] font-medium bg-black text-white">
+            Contact
+          </a>
         </div>
       </nav>
 
       {/* ── Hero ── */}
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
         <div className="relative flex-1 flex items-center overflow-hidden pt-[72px]">
+          {/* Drone — desktop: absolute right bg */}
           <div className="absolute right-[10%] top-0 bottom-0 w-[60%] hidden lg:block">
             <Image src="/drone.png" alt="" fill className="object-contain object-center" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-10% via-white/70 via-35% to-transparent to-70%" />
           </div>
           <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
-            <h1 className="text-[clamp(3rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
+            <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {h.headline.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
               ))}
             </h1>
-            <p className="mt-8 text-lg md:text-xl text-neutral-500 max-w-xl leading-relaxed font-light">
+            <p className="mt-6 md:mt-8 text-base md:text-xl text-neutral-500 max-w-xl leading-relaxed font-light">
               {h.subtitle}
             </p>
-            <div className="mt-10">
-              <a href="#platforms" className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
+            <div className="mt-8 md:mt-10">
+              <a href="#platforms" className="inline-flex items-center h-11 md:h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
                 Our Products
               </a>
+            </div>
+            {/* Drone — mobile: inline below text */}
+            <div className="lg:hidden mt-10 flex justify-center">
+              <Image src="/drone.png" alt="" width={320} height={240} className="object-contain" priority />
             </div>
           </div>
         </div>
@@ -84,7 +93,7 @@ export default function PageContent({ fontLabel, units, hero }: { fontLabel: str
                 Academia
               </span>
             </div>
-            <div className="flex flex-wrap gap-8 text-[14px] text-neutral-400">
+            <div className="flex flex-wrap gap-4 md:gap-8 text-[13px] md:text-[14px] text-neutral-400">
               <a href="mailto:business@theacademia.tech" className="hover:text-black transition-colors duration-200">business@theacademia.tech</a>
               <a href="mailto:sales@theacademia.tech" className="hover:text-black transition-colors duration-200">sales@theacademia.tech</a>
               <a href="https://www.linkedin.com/company/theacademia-tech/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200">LinkedIn</a>
