@@ -47,6 +47,7 @@ export default function StabXPage() {
                 camera: "Visible light",
                 buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4710/",
                 icon: "day" as const,
+                img: "/stabx.png",
               },
               {
                 name: "StabX Night",
@@ -54,12 +55,14 @@ export default function StabXPage() {
                 camera: "Thermal",
                 buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4646/",
                 icon: "night" as const,
+                img: "/stabx.png",
               },
               {
                 name: "StabX Day+Night",
                 desc: "Combined visible and thermal module for 24-hour operation.",
                 camera: "Visible + Thermal",
                 buyUrl: null,
+                img: "/day-night.png",
                 icon: "both" as const,
               },
             ].map((mod) => (
@@ -96,7 +99,7 @@ export default function StabXPage() {
                   )}
                 </div>
                 <div className="flex items-center justify-center py-8 mb-6">
-                  <Image src="/stabx.png" alt={mod.name} width={200} height={150} className="object-contain" />
+                  <Image src={mod.img} alt={mod.name} width={200} height={150} className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-semibold tracking-[-0.02em] mb-2" style={{ fontFamily: "var(--font-unbounded)" }}>{mod.name}</h3>
                 <p className="text-neutral-400 text-[15px] mb-6">{mod.desc}</p>
