@@ -12,6 +12,7 @@ export const metadata = {
 export default async function NaviLocPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const lang = getLang(params);
+  const q = lang === "uk" ? "?lang=uk" : "";
   return (
     <div className="min-h-screen bg-white text-black antialiased">
       <Nav lang={lang} />
@@ -19,26 +20,26 @@ export default async function NaviLocPage({ searchParams }: { searchParams: Prom
       {/* ── Article Header ── */}
       <header className="pt-[72px]">
         <div className="max-w-3xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-12 md:pb-16">
-          <p className="text-[13px] text-neutral-400 mb-8">January 2026</p>
+          <p className="text-[13px] text-neutral-400 mb-8">{lang === "uk" ? "Січень 2026" : "January 2026"}</p>
 
           <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-[-0.03em] leading-[1.1] text-black mb-6">
-            NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation
+            {t("naviloc.title", lang)}
           </h1>
 
           <p className="text-xl md:text-2xl text-neutral-500 leading-relaxed font-light mb-10">
-            Matching drone cameras to satellite maps &mdash; across the entire flight path, not frame by frame
+            {t("naviloc.subtitle", lang)}
           </p>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pb-10 border-b border-neutral-200">
             <p className="text-[15px] text-neutral-600">Pavel Shpagin, Taras Panchenko</p>
-            <span className="text-[13px] text-neutral-400">Drones (MDPI), Vol. 10, No. 2</span>
+            <span className="text-[13px] text-neutral-400">{t("naviloc.journal", lang)}</span>
             <a
               href="https://www.mdpi.com/2504-446X/10/2/97"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[15px] font-medium text-black hover:text-neutral-600 transition-colors duration-200"
             >
-              Full paper on MDPI&nbsp;&rarr;
+              {t("naviloc.fullPaper", lang)}&nbsp;&rarr;
             </a>
           </div>
         </div>
@@ -49,83 +50,60 @@ export default async function NaviLocPage({ searchParams }: { searchParams: Prom
         <div className="space-y-8 text-[17px] leading-[1.8] text-neutral-700">
 
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            The problem
+            {t("naviloc.problem", lang)}
+          </h2>
+
+          <p>{t("naviloc.problem.p1", lang)}</p>
+          <p>{t("naviloc.problem.p2", lang)}</p>
+          <p>{t("naviloc.problem.p3", lang)}</p>
+
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
+            {t("naviloc.differently", lang)}
+          </h2>
+
+          <p>{t("naviloc.differently.p1", lang)}</p>
+          <p>{t("naviloc.differently.p2", lang)}</p>
+          <p>{t("naviloc.differently.p3", lang)}</p>
+
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
+            {t("naviloc.stages", lang)}
           </h2>
 
           <p>
-            Drones rely on GPS to know where they are. When GPS signals get jammed or spoofed &mdash; which is now routine in conflict zones &mdash; drones lose their position fix. They can&rsquo;t navigate, can&rsquo;t return home, can&rsquo;t complete their mission.
+            <strong className="text-black">{t("naviloc.stage1.title", lang)}</strong>{" "}
+            {t("naviloc.stage1.desc", lang)}
           </p>
 
           <p>
-            One alternative: use the drone&rsquo;s camera to match what it sees on the ground against satellite imagery and figure out its location visually. The problem is that at low altitudes (50&ndash;150 meters), the drone&rsquo;s view looks very different from satellite photos. Fields, roads, and buildings repeat across the landscape. A single camera frame can easily match the wrong satellite tile &mdash; the system thinks the drone is in one place when it&rsquo;s actually somewhere else.
+            <strong className="text-black">{t("naviloc.stage2.title", lang)}</strong>{" "}
+            {t("naviloc.stage2.desc", lang)}
           </p>
 
           <p>
-            Existing methods try to match each frame independently. They fail because of this perceptual aliasing &mdash; too many locations look alike from above.
+            <strong className="text-black">{t("naviloc.stage3.title", lang)}</strong>{" "}
+            {t("naviloc.stage3.desc", lang)}
           </p>
 
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            What NaviLoc does differently
+            {t("naviloc.satMap", lang)}
           </h2>
 
-          <p>
-            NaviLoc doesn&rsquo;t trust individual frame matches. Instead, it uses the drone&rsquo;s entire flight trajectory to determine position.
-          </p>
-
-          <p>
-            The system combines two sources of information. First: visual place recognition (VPR) &mdash; matching camera frames to geo-referenced satellite tiles using deep learning descriptors. These matches are treated as noisy measurements, not ground truth. Second: visual-inertial odometry (VIO) &mdash; tracking relative motion between frames using the camera and an IMU (accelerometer + gyroscope). VIO is accurate for short distances but drifts over time.
-          </p>
-
-          <p>
-            Neither source is reliable alone. VPR gives approximate global position but frequently matches wrong tiles. VIO gives precise relative motion but accumulates drift. NaviLoc fuses them across the full trajectory so their errors cancel out.
-          </p>
+          <p>{t("naviloc.satMap.p1", lang)}</p>
+          <p>{t("naviloc.satMap.p2", lang)}</p>
 
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            Three stages
+            {t("naviloc.results", lang)}
           </h2>
 
-          <p>
-            <strong className="text-black">Stage 1 &mdash; Global Align.</strong>{" "}
-            The VIO trajectory exists in a local coordinate frame &mdash; the drone knows how it moved, but not where in the world it started or which direction it was facing. Stage 1 finds the rotation, translation, and scale that best align this local trajectory to the satellite map. It does this by scanning candidate rotations, computing a robust median translation for each, and picking the alignment where the most camera frames match nearby satellite tiles. The median makes this robust: even if half the frame matches are wrong, the correct ones still dominate.
-          </p>
-
-          <p>
-            <strong className="text-black">Stage 2 &mdash; Refinement.</strong>{" "}
-            The global alignment from Stage 1 is coarse. Stage 2 slides a window along the trajectory and applies local geometric corrections using weighted Procrustes analysis. Each window recomputes which satellite tiles best match the camera frames at the current estimated positions, then adjusts the local trajectory segment. A rotation bound prevents overcorrection from noisy matches. Multiple passes converge in 2&ndash;3 iterations.
-          </p>
-
-          <p>
-            <strong className="text-black">Stage 3 &mdash; Smoothing.</strong>{" "}
-            The final stage formulates a convex optimization problem that fuses VIO motion constraints with the refined position anchors from Stage 2. It detects outlier anchors using z-scores on their visual similarity &mdash; if a match looks statistically worse than the others, it gets clamped to the VIO prior instead. The result is a closed-form linear solve that produces the final trajectory estimate.
-          </p>
-
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            Satellite map preparation
-          </h2>
-
-          <p>
-            Before flight, satellite imagery of the operating area is downloaded and divided into a grid of tiles (40m spacing in our benchmark). Each tile is processed through a Vision Transformer (DeiT-Tiny-Distilled) to extract a 192-dimensional descriptor &mdash; a compact numerical fingerprint of its visual content. These are stored in a reference database. On our benchmark, 462 tiles cover 1.6 km&sup2; at 0.3 m/pixel resolution.
-          </p>
-
-          <p>
-            During flight, the same model processes each camera frame to produce its descriptor. Matching is then a nearest-neighbor search in descriptor space &mdash; fast enough to run in real time on embedded hardware.
-          </p>
-
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            Results
-          </h2>
-
-          <p>
-            We evaluated NaviLoc on a real-world benchmark: 58 frames from a 2.3 km flight over rural terrain in Ukraine at 50&ndash;150m altitude. The terrain is challenging &mdash; repetitive agricultural fields and village patterns with few distinctive landmarks.
-          </p>
+          <p>{t("naviloc.results.intro", lang)}</p>
 
           <ul className="list-none space-y-4 pl-0">
-            {[
-              ["19.5m mean localization error", "Over a 2.3 km trajectory. 16x more accurate than the previous best method (AnyLoc-VLAD, 312m)."],
-              ["32x better than raw VIO drift", "VIO alone drifted to 627m error. NaviLoc corrects this to under 20m."],
-              ["9 FPS on Raspberry Pi 5", "End-to-end inference on a $80 single-board computer. No GPU, no cloud, no internet required."],
-              ["Training-free", "Uses off-the-shelf pretrained descriptors. No domain-specific fine-tuning needed for new areas."],
-            ].map(([title, desc]) => (
+            {([
+              [t("naviloc.results.r1.title", lang), t("naviloc.results.r1.desc", lang)],
+              [t("naviloc.results.r2.title", lang), t("naviloc.results.r2.desc", lang)],
+              [t("naviloc.results.r3.title", lang), t("naviloc.results.r3.desc", lang)],
+              [t("naviloc.results.r4.title", lang), t("naviloc.results.r4.desc", lang)],
+            ] as const).map(([title, desc]) => (
               <li key={title} className="flex gap-3">
                 <span className="mt-[10px] w-1.5 h-1.5 rounded-full bg-black shrink-0" />
                 <span>
@@ -136,42 +114,35 @@ export default async function NaviLocPage({ searchParams }: { searchParams: Prom
             ))}
           </ul>
 
-          <p>
-            To put this in context: 19.5 meters of accuracy over a multi-kilometer flight, at low altitude, over visually repetitive rural terrain, with no GPS, running on a credit-card-sized computer. The previous state-of-the-art scored 312 meters on the same benchmark.
-          </p>
+          <p>{t("naviloc.results.context", lang)}</p>
 
           <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-black pt-8">
-            Why it matters
+            {t("naviloc.whyMatters", lang)}
           </h2>
 
-          <p>
-            The core contribution is the trajectory-level approach. Existing methods match frames independently and fail when individual matches are ambiguous. NaviLoc shows that by treating visual matches as noisy measurements and fusing them with motion data across the full flight path, you can get reliable positioning even when most individual matches would be wrong.
-          </p>
+          <p>{t("naviloc.whyMatters.p1", lang)}</p>
+          <p>{t("naviloc.whyMatters.p2", lang)}</p>
 
           <p>
-            The algorithm is lightweight and training-free &mdash; it works with any pretrained image descriptor, on any terrain, without collecting domain-specific training data. This makes it practical to deploy in new areas without preparation beyond downloading satellite imagery.
-          </p>
-
-          <p>
-            NaviLoc is the research foundation behind{" "}
-            <Link href="/navix" className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
+            {t("naviloc.whyMatters.p3", lang)}{" "}
+            <Link href={`/navix${q}`} className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
               NaviX
             </Link>
-            , our GPS-free navigation product currently in closed testing. NaviX takes these algorithms further &mdash; optimizing for production hardware, expanding the environmental envelope, and integrating with real autopilot systems.
+            {t("naviloc.whyMatters.p3b", lang)}
           </p>
         </div>
 
         {/* ── CTA ── */}
         <div className="mt-20 pt-12 border-t border-neutral-200">
           <p className="text-lg text-neutral-600 leading-relaxed mb-6">
-            NaviLoc powers{" "}
-            <Link href="/navix" className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
+            {t("naviloc.cta", lang)}{" "}
+            <Link href={`/navix${q}`} className="text-black font-medium underline underline-offset-4 decoration-neutral-300 hover:decoration-black transition-colors duration-200">
               NaviX
             </Link>
-            , our GPS-free navigation product currently in closed testing.
+            {t("naviloc.ctaB", lang)}
           </p>
-          <Link href="/navix" className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
-            Learn about NaviX&nbsp;&rarr;
+          <Link href={`/navix${q}`} className="inline-flex items-center h-12 px-7 text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
+            {t("naviloc.learnNavix", lang)}&nbsp;&rarr;
           </Link>
         </div>
       </article>
@@ -193,7 +164,7 @@ export default async function NaviLocPage({ searchParams }: { searchParams: Prom
             </div>
           </div>
           <div className="border-t border-neutral-200 pt-8">
-            <p className="text-[13px] text-neutral-400">&copy; 2026 Academia Tech. All rights reserved.</p>
+            <p className="text-[13px] text-neutral-400">{t("footer.rights", lang)}</p>
           </div>
         </div>
       </footer>
