@@ -33,11 +33,7 @@ export default function NaviLocPage() {
       {/* ── Article Header ── */}
       <header className="pt-[72px]">
         <div className="max-w-3xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-12 md:pb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="text-[13px] font-medium tracking-[0.08em] uppercase text-neutral-400">Research</span>
-            <span className="w-1 h-1 rounded-full bg-neutral-300" />
-            <span className="text-[13px] text-neutral-400">January 2026</span>
-          </div>
+          <p className="text-[13px] text-neutral-400 mb-8">January 2026</p>
 
           <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-[-0.03em] leading-[1.1] text-black mb-6">
             NaviLoc: Trajectory-Level Visual Localization for GNSS-Denied UAV Navigation
