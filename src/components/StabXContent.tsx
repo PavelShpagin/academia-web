@@ -47,8 +47,17 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                 img: "/day-night.png",
                 icon: "both" as const,
               },
+              {
+                name: "StabX License",
+                desc: t("stabx.license.desc", lang),
+                camera: null,
+                buyUrl: "https://market-brave1.delta.mil.gov.ua/soft/2435/",
+                icon: null,
+                img: null,
+              },
             ].map((mod) => (
               <div key={mod.name} className="relative bg-[#161616] p-6 md:p-8 pb-8 md:pb-10" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+                {mod.icon && (
                 <div className="absolute bottom-4 right-4 md:bottom-8 md:right-6 opacity-10 pointer-events-none">
                   {mod.icon === "day" && (
                     <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -79,15 +88,20 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                     </div>
                   )}
                 </div>
+                )}
+                {mod.img ? (
                 <div className="flex items-center justify-center py-8 mb-6">
                   <Image src={mod.img} alt={mod.name} width={200} height={150} className="object-contain" />
                 </div>
+                ) : null}
                 <h3 className="text-2xl font-semibold tracking-[-0.02em] mb-2" style={{ fontFamily: "var(--font-unbounded)" }}>{mod.name}</h3>
                 <p className="text-neutral-400 text-[15px] mb-6">{mod.desc}</p>
+                {mod.camera && (
                 <div className="flex justify-between py-3 border-t border-white/10 text-[14px]">
                   <span className="text-neutral-500">{t("stabx.camera", lang)}</span>
                   <span className="text-neutral-200">{mod.camera}</span>
                 </div>
+                )}
                 {mod.buyUrl ? (
                   <a
                     href={mod.buyUrl}
@@ -100,6 +114,7 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                 ) : (
                   <div className="mt-6 h-[21px]" />
                 )}
+
               </div>
             ))}
           </div>

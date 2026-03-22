@@ -219,6 +219,7 @@ const translations = {
   "stabx.day.desc": { en: "Daytime optical stabilization using visible-light camera.", uk: "Денна оптична стабілізація з камерою видимого спектру." },
   "stabx.night.desc": { en: "Thermal imaging stabilization for night and low-visibility operations.", uk: "Стабілізація на основі тепловізора для нічних та умов обмеженої видимості." },
   "stabx.daynight.desc": { en: "Combined visible and thermal module for 24-hour operation.", uk: "Комбінований модуль видимого та теплового діапазону для цілодобової роботи." },
+  "stabx.license.desc": { en: "Software license compatible with any hardware. Access to all builds and versions.", uk: "Програмна ліцензія, сумісна з будь-яким обладнанням. Доступ до всіх збірок та версій." },
   "stabx.camera": { en: "Camera", uk: "Камера" },
   "stabx.camera.visible": { en: "Visible light", uk: "Видимий спектр" },
   "stabx.camera.thermal": { en: "Thermal", uk: "Тепловізор" },
