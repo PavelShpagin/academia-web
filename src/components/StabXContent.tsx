@@ -29,7 +29,7 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                 camera: t("stabx.camera.visible", lang),
                 buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/4710/",
                 icon: "day" as const,
-                img: "/stabx.png",
+                img: "/stabx-day.png",
               },
               {
                 name: "StabX Night",
