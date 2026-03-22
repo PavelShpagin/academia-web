@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import UnitMarquee from "./UnitMarquee";
@@ -12,13 +14,13 @@ export interface HeroVariant {
   subtitle: string;
 }
 
-export default function PageContent({ units, lang = "en" }: { units: string[]; lang?: Lang }) {
-  const q = lang === "uk" ? "?lang=uk" : "";
+export default function PageContent({ units, initialLang = "en" }: { units: string[]; initialLang?: Lang }) {
+  const [lang, setLang] = useState<Lang>(initialLang);
   const supportbotUrl = `https://supportbot.info${lang === "uk" ? "?lang=uk" : ""}`;
 
   return (
     <div className="min-h-screen bg-white text-black antialiased">
-      <Nav lang={lang} />
+      <Nav lang={lang} onLangChange={setLang} />
 
       {/* ── Hero ── */}
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>

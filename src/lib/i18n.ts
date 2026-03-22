@@ -1,8 +1,17 @@
 export type Lang = "en" | "uk";
 
-export function getLang(searchParams: Record<string, string | string[] | undefined>): Lang {
+export function getLang(searchParams: Record<string, string | string[] | undefined>, acceptLanguage?: string | null): Lang {
+  // 1. Explicit query param wins
   const lang = searchParams?.lang;
   if (lang === "uk") return "uk";
+  if (lang === "en") return "en";
+
+  // 2. Auto-detect from Accept-Language header
+  if (acceptLanguage) {
+    const parts = acceptLanguage.toLowerCase();
+    if (parts.includes("uk")) return "uk";
+  }
+
   return "en";
 }
 

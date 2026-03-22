@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
+import { Lang } from "@/lib/i18n";
 
-export default function MobileMenu({ lang = "en" }: { lang?: string }) {
+export default function MobileMenu({ lang = "en", onLangChange }: { lang?: string; onLangChange?: (l: Lang) => void }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -19,8 +20,8 @@ export default function MobileMenu({ lang = "en" }: { lang?: string }) {
   const href = (anchor: string) => isHome ? `#${anchor}` : `/${q}#${anchor}`;
 
   const labels = lang === "uk"
-    ? { products: "Продукти", impact: "Результати", research: "Дослідження", cta: "Зв'язатися" }
-    : { products: "Products", impact: "Impact", research: "Research", cta: "Get in touch" };
+    ? { products: "Продукти", impact: "Результати", research: "Дослідження", contact: "Контакт", cta: "Зв'язатися" }
+    : { products: "Products", impact: "Impact", research: "Research", contact: "Contact", cta: "Get in touch" };
 
   return (
     <div className="md:hidden">
@@ -40,12 +41,20 @@ export default function MobileMenu({ lang = "en" }: { lang?: string }) {
         style={{ backgroundColor: "rgba(0,0,0,0.15)", WebkitBackdropFilter: "blur(4px)", backdropFilter: "blur(4px)" }}
         onClick={close}
       />
-      <div className={`absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 overflow-hidden z-50 transition-all duration-300 ease-out ${open ? "max-h-64 py-6 opacity-100" : "max-h-0 py-0 opacity-0"}`}>
-        {[
-          { label: labels.products, anchor: "platforms" },
-          { label: labels.impact, anchor: "impact" },
-          { label: labels.research, anchor: "research" },
-        ].map((item, i) => (
+      <div className={`absolute top-[72px] left-0 right-0 bg-white border-b border-neutral-200 px-6 overflow-hidden z-50 transition-all duration-300 ease-out ${open ? (onLangChange ? "max-h-80" : "max-h-64") + " py-6 opacity-100" : "max-h-0 py-0 opacity-0"}`}>
+        {(onLangChange
+          ? [
+              { label: labels.products, anchor: "platforms" },
+              { label: labels.impact, anchor: "impact" },
+              { label: labels.research, anchor: "research" },
+              { label: labels.contact, anchor: "contact" },
+            ]
+          : [
+              { label: labels.products, anchor: "platforms" },
+              { label: labels.impact, anchor: "impact" },
+              { label: labels.research, anchor: "research" },
+            ]
+        ).map((item, i) => (
           <a
             key={item.label}
             href={href(item.anchor)}
@@ -56,14 +65,25 @@ export default function MobileMenu({ lang = "en" }: { lang?: string }) {
             {item.label}
           </a>
         ))}
-        <a
-          href={href("contact")}
-          onClick={close}
-          className="inline-flex items-center justify-center h-10 px-5 mt-2 text-[14px] font-medium bg-black text-white hover:bg-neutral-800 transition-all duration-300"
-          style={{ transitionDelay: open ? "150ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
-        >
-          {labels.cta}
-        </a>
+        {!onLangChange && (
+          <a
+            href={href("contact")}
+            onClick={close}
+            className="inline-flex items-center justify-center h-10 px-5 mt-2 text-[14px] font-medium bg-black text-white hover:bg-neutral-800 transition-all duration-300"
+            style={{ transitionDelay: open ? "150ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
+          >
+            {labels.cta}
+          </a>
+        )}
+        {onLangChange && (
+          <div
+            className="flex items-center gap-1.5 mt-3 transition-all duration-300"
+            style={{ transitionDelay: open ? "200ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
+          >
+            <button onClick={() => { onLangChange("en"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "en" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>EN</button>
+            <button onClick={() => { onLangChange("uk"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "uk" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>UA</button>
+          </div>
+        )}
       </div>
     </div>
   );

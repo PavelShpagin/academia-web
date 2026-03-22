@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Albert_Sans, Anonymous_Pro, Unbounded } from "next/font/google";
+import { Inter, Anonymous_Pro, Unbounded } from "next/font/google";
 import "./globals.css";
 
-const albertSans = Albert_Sans({
+const inter = Inter({
   variable: "--font-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${albertSans.variable} ${anonymousPro.variable} ${unbounded.variable} antialiased`}
+      className={`${inter.variable} ${anonymousPro.variable} ${unbounded.variable} antialiased`}
     >
       <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>{children}</body>
     </html>
