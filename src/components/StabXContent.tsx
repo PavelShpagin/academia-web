@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Nav from "./Nav";
 import { Lang, t } from "@/lib/i18n";
+import { useLang } from "@/lib/useLang";
 
 export default function StabXContent({ initialLang = "en" }: { initialLang?: Lang }) {
-  const [lang, setLang] = useState<Lang>(initialLang);
+  const [lang, setLang] = useLang(initialLang);
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">

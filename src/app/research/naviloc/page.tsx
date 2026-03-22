@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 import NaviLocContent from "@/components/NaviLocContent";
 import { getLang } from "@/lib/i18n";
 
@@ -11,7 +11,8 @@ export const metadata = {
 export default async function NaviLocPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = await searchParams;
   const hdrs = await headers();
-  const lang = getLang(params, hdrs.get("accept-language"));
+  const jar = await cookies();
+  const lang = getLang(params, hdrs.get("accept-language"), jar.get("lang")?.value);
 
   return <NaviLocContent initialLang={lang} />;
 }

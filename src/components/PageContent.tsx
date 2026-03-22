@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import UnitMarquee from "./UnitMarquee";
@@ -8,6 +7,7 @@ import { Impact1 } from "./ImpactVariants";
 import { Research1 } from "./ResearchVariants";
 import { Products2 } from "./ProductVariants";
 import { Lang, t } from "@/lib/i18n";
+import { useLang } from "@/lib/useLang";
 
 export interface HeroVariant {
   headline: string;
@@ -15,7 +15,7 @@ export interface HeroVariant {
 }
 
 export default function PageContent({ units, initialLang = "en" }: { units: string[]; initialLang?: Lang }) {
-  const [lang, setLang] = useState<Lang>(initialLang);
+  const [lang, setLang] = useLang(initialLang);
   const supportbotUrl = `https://supportbot.info${lang === "uk" ? "?lang=uk" : ""}`;
 
   return (

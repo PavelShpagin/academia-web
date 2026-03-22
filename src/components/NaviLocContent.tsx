@@ -1,12 +1,12 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "./Nav";
 import { Lang, t } from "@/lib/i18n";
+import { useLang } from "@/lib/useLang";
 
 export default function NaviLocContent({ initialLang = "en" }: { initialLang?: Lang }) {
-  const [lang, setLang] = useState<Lang>(initialLang);
+  const [lang, setLang] = useLang(initialLang);
 
   return (
     <div className="min-h-screen bg-white text-black antialiased">
