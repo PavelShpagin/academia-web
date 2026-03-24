@@ -4,9 +4,11 @@ import Link from "next/link";
 import Nav from "./Nav";
 import { Lang, t } from "@/lib/i18n";
 import { useLang } from "@/lib/useLang";
+import { useState } from "react";
 
 export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lang }) {
   const [lang, setLang] = useLang(initialLang);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">
@@ -49,11 +51,17 @@ export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lan
               </div>
             </div>
             <div>
-              <div className="bg-[#111] p-3" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+              <div className="bg-[#111] p-3 cursor-pointer" onClick={() => setLightboxOpen(true)} style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
                 <Image src="/navix-ui.png?v=2" alt="NaviX mission interface" width={700} height={420} className="w-full" />
               </div>
               <p className="text-[12px] text-neutral-600 mt-3">{t("navix.uiCaption", lang)}</p>
             </div>
+
+            {lightboxOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 cursor-pointer" onClick={() => setLightboxOpen(false)}>
+                <Image src="/navix-ui.png?v=2" alt="NaviX mission interface" width={1400} height={840} className="max-w-[90vw] max-h-[90vh] object-contain" />
+              </div>
+            )}
           </div>
         </div>
       </section>
