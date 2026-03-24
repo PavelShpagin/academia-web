@@ -50,7 +50,7 @@ export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lan
             </div>
             <div>
               <div className="bg-[#111] p-3" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
-                <Image src="/navix-ui.png" alt="NaviX mission interface" width={700} height={420} className="w-full" />
+                <Image src="/navix-ui.png?v=2" alt="NaviX mission interface" width={700} height={420} className="w-full" />
               </div>
               <p className="text-[12px] text-neutral-600 mt-3">{t("navix.uiCaption", lang)}</p>
             </div>
