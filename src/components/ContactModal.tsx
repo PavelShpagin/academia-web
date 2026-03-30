@@ -109,7 +109,7 @@ export default function ContactModal({ open, onClose, variant, lang }: ContactMo
   return (
     <dialog
       ref={dialogRef}
-      className="fixed inset-0 z-50 m-auto w-[calc(100%-2rem)] max-w-lg bg-transparent p-0 backdrop:bg-black/80"
+      className="fixed inset-0 z-50 m-auto w-[calc(100%-2rem)] max-w-lg bg-transparent p-0 backdrop:bg-black/80 backdrop:transition-opacity backdrop:duration-200 animate-[fadeSlideUp_0.2s_ease-out]"
       onClick={(e) => { if (e.target === dialogRef.current) onClose(); }}
     >
       <div className="bg-[#111] text-white">
