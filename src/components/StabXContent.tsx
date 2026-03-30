@@ -47,7 +47,7 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                 name: "StabX Day+Night",
                 desc: t("stabx.daynight.desc", lang),
                 camera: t("stabx.camera.both", lang),
-                buyUrl: null,
+                buyUrl: "https://market-brave1.delta.mil.gov.ua/modul-optychnoi-stabilizatsii/6451/",
                 img: "/day-night.png",
                 icon: "both" as const,
               },
