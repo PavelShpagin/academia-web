@@ -125,12 +125,16 @@ export default function ContactModal({ open, onClose, variant, lang }: ContactMo
 
         {/* Success state */}
         {status === "success" ? (
-          <div className="px-6 py-12 text-center">
-            <div className="text-2xl mb-3">&#10003;</div>
-            <p className="text-neutral-300 text-[15px]">{t("modal.success", lang)}</p>
+          <div className="px-6 py-16 text-center">
+            <div className="mx-auto w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <p className="text-white text-[16px] font-medium mb-1">{t("modal.success", lang)}</p>
             <button
               onClick={onClose}
-              className="mt-8 inline-flex items-center h-10 px-6 text-[14px] font-medium border border-neutral-600 text-white hover:border-white transition-colors"
+              className="mt-8 inline-flex items-center h-10 px-6 text-[14px] font-medium border border-neutral-600 text-white hover:border-white transition-colors cursor-pointer"
             >
               {t("modal.close", lang)}
             </button>
