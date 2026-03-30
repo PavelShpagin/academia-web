@@ -60,7 +60,7 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                 img: null,
               },
             ].map((mod) => (
-              <div key={mod.name} className="relative bg-[#161616] p-6 md:p-8 pb-8 md:pb-10" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
+              <div key={mod.name} className="relative flex flex-col bg-[#161616] p-6 md:p-8 pb-8 md:pb-10" style={{ clipPath: "polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%)" }}>
                 {mod.icon && (
                 <div className="absolute bottom-4 right-4 md:bottom-8 md:right-6 opacity-10 pointer-events-none">
                   {mod.icon === "day" && (
@@ -111,12 +111,12 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
                     href={mod.buyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center mt-6 text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors duration-200"
+                    className="inline-flex items-center mt-auto pt-6 text-[14px] font-medium text-white border-b border-white/40 pb-1 hover:border-white transition-colors duration-200"
                   >
                     {t("stabx.buyBrave1", lang)} &rarr;
                   </a>
                 ) : (
-                  <div className="mt-6 h-[21px]" />
+                  <div className="mt-auto pt-6 h-[21px]" />
                 )}
 
               </div>
