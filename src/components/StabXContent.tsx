@@ -1,11 +1,15 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import Nav from "./Nav";
+import ContactModal, { ModalVariant } from "./ContactModal";
 import { Lang, t } from "@/lib/i18n";
 import { useLang } from "@/lib/useLang";
 
 export default function StabXContent({ initialLang = "en" }: { initialLang?: Lang }) {
   const [lang, setLang] = useLang(initialLang);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalVariant, setModalVariant] = useState<ModalVariant>("sales");
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">
@@ -186,12 +190,12 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
             ))}
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="mailto:sales@theacademia.tech" className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors duration-200">
+            <button onClick={() => { setModalVariant("sales"); setModalOpen(true); }} className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors duration-200 cursor-pointer">
               {t("stabx.contactSales", lang)}
-            </a>
-            <a href="mailto:business@theacademia.tech" className="inline-flex items-center h-12 px-8 text-[15px] font-medium border border-neutral-600 text-white hover:border-white transition-colors duration-200">
+            </button>
+            <button onClick={() => { setModalVariant("business"); setModalOpen(true); }} className="inline-flex items-center h-12 px-8 text-[15px] font-medium border border-neutral-600 text-white hover:border-white transition-colors duration-200 cursor-pointer">
               {t("stabx.businessInquiries", lang)}
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -217,6 +221,8 @@ export default function StabXContent({ initialLang = "en" }: { initialLang?: Lan
           </div>
         </div>
       </footer>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} variant={modalVariant} lang={lang} />
     </div>
   );
 }

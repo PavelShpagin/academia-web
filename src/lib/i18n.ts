@@ -291,6 +291,26 @@ const translations = {
   "navix.joinWaitlist": { en: "Join the NaviX Waitlist", uk: "Приєднатися до списку очікування NaviX" },
   "navix.joinDesc": { en: "NaviX is in closed testing with select partners. Request early access.", uk: "NaviX на етапі закритого тестування з обраними партнерами. Подайте запит на ранній доступ." },
   "navix.requestAccess": { en: "Request Access", uk: "Подати запит" },
+
+  // Contact modal
+  "modal.close": { en: "Close", uk: "Закрити" },
+  "modal.contactSales.title": { en: "Contact Sales", uk: "Зв'язатися з відділом продажів" },
+  "modal.businessInquiries.title": { en: "Business Inquiry", uk: "Бізнес-запит" },
+  "modal.requestAccess.title": { en: "Request Access to NaviX", uk: "Подати запит на доступ до NaviX" },
+  "modal.orgType.company": { en: "Company", uk: "Компанія" },
+  "modal.orgType.military": { en: "Military Unit", uk: "Військовий підрозділ" },
+  "modal.companyName": { en: "Company name", uk: "Назва компанії" },
+  "modal.unitName": { en: "Unit designation", uk: "Позивний / назва підрозділу" },
+  "modal.contactName": { en: "Contact name", uk: "Контактна особа" },
+  "modal.email": { en: "Email", uk: "Електронна пошта" },
+  "modal.message": { en: "Use case / message", uk: "Опис використання / повідомлення" },
+  "modal.messagePlaceholder.sales": { en: "Tell us about your platform and integration needs…", uk: "Розкажіть про вашу платформу та потреби інтеграції…" },
+  "modal.messagePlaceholder.business": { en: "Describe your business inquiry…", uk: "Опишіть ваш бізнес-запит…" },
+  "modal.messagePlaceholder.waitlist": { en: "Tell us about your use case and why you need GPS-free navigation…", uk: "Розкажіть про ваш випадок використання та чому вам потрібна навігація без GPS…" },
+  "modal.submit": { en: "Submit", uk: "Надіслати" },
+  "modal.submitting": { en: "Sending…", uk: "Надсилання…" },
+  "modal.success": { en: "Sent! We'll get back to you soon.", uk: "Надіслано! Ми зв'яжемося з вами найближчим часом." },
+  "modal.error": { en: "Something went wrong. Please try again or email us directly.", uk: "Щось пішло не так. Спробуйте ще раз або напишіть нам напряму." },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

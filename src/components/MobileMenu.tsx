@@ -80,8 +80,8 @@ export default function MobileMenu({ lang = "en", onLangChange }: { lang?: strin
             className="flex items-center gap-1.5 mt-3 transition-all duration-300"
             style={{ transitionDelay: open ? "200ms" : "0ms", opacity: open ? 1 : 0, transform: open ? "translateY(0)" : "translateY(-8px)" }}
           >
-            <button onClick={() => { onLangChange("en"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "en" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>EN</button>
-            <button onClick={() => { onLangChange("uk"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "uk" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>UA</button>
+            <button onClick={() => { onLangChange("en"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out cursor-pointer ${lang === "en" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>EN</button>
+            <button onClick={() => { onLangChange("uk"); }} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out cursor-pointer ${lang === "uk" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>UA</button>
           </div>
         )}
       </div>

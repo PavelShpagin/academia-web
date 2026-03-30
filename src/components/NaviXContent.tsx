@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "./Nav";
+import ContactModal from "./ContactModal";
 import { Lang, t } from "@/lib/i18n";
 import { useLang } from "@/lib/useLang";
 import { useState } from "react";
@@ -9,6 +10,7 @@ import { useState } from "react";
 export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lang }) {
   const [lang, setLang] = useLang(initialLang);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">
@@ -115,9 +117,9 @@ export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lan
             {t("navix.joinWaitlist", lang)}
           </h2>
           <p className="text-neutral-500 text-[15px] max-w-md mx-auto mb-10">{t("navix.joinDesc", lang)}</p>
-          <a href="mailto:business@theacademia.tech?subject=NaviX%20Waitlist" className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors">
+          <button onClick={() => setModalOpen(true)} className="inline-flex items-center h-12 px-8 text-[15px] font-medium bg-white text-black hover:bg-neutral-200 transition-colors cursor-pointer">
             {t("navix.requestAccess", lang)}
-          </a>
+          </button>
         </div>
       </section>
 
@@ -133,6 +135,7 @@ export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lan
             </div>
             <div className="flex flex-wrap gap-8 text-[14px] text-neutral-400">
               <a href="mailto:business@theacademia.tech" className="hover:text-black transition-colors duration-200">business@theacademia.tech</a>
+              <a href="mailto:sales@theacademia.tech" className="hover:text-black transition-colors duration-200">sales@theacademia.tech</a>
               <a href="https://www.linkedin.com/company/theacademia-tech/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors duration-200">LinkedIn</a>
             </div>
           </div>
@@ -141,6 +144,8 @@ export default function NaviXContent({ initialLang = "en" }: { initialLang?: Lan
           </div>
         </div>
       </footer>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} variant="waitlist" lang={lang} />
     </div>
   );
 }

@@ -28,8 +28,8 @@ export default function Nav({ lang, onLangChange }: { lang: Lang; onLangChange?:
         <div className="flex items-center gap-4">
           {hasToggle ? (
             <div className="hidden md:flex items-center gap-1.5">
-              <button onClick={() => onLangChange("en")} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "en" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>EN</button>
-              <button onClick={() => onLangChange("uk")} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out ${lang === "uk" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>UA</button>
+              <button onClick={() => onLangChange("en")} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out cursor-pointer ${lang === "en" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>EN</button>
+              <button onClick={() => onLangChange("uk")} className={`px-3 py-1 text-[12px] font-semibold rounded-md border transition-all duration-100 ease-in-out cursor-pointer ${lang === "uk" ? "bg-black border-black text-white" : "bg-transparent border-neutral-200 text-neutral-400 hover:border-neutral-400"}`}>UA</button>
             </div>
           ) : (
             <Link href={`/${q}#contact`} className="hidden md:inline-flex items-center h-9 px-4 text-[13px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
