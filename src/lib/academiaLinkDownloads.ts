@@ -1,4 +1,4 @@
-export type SupportedPlatform = "windows" | "macos" | "linux" | "android";
+export type SupportedPlatform = "windows" | "macos" | "linux";
 
 export interface DownloadTarget {
   href: string;
@@ -11,7 +11,6 @@ export const ACADEMIA_LINK_DOWNLOADS: Record<SupportedPlatform, string> = {
   windows: "https://theacademia.cloud/files/download/AcademiaLink-Setup-x64.exe/",
   macos: "https://theacademia.cloud/files/download/AcademiaLink-macOS-universal.dmg/",
   linux: "https://theacademia.cloud/files/download/AcademiaLink-Linux-x86_64.AppImage/",
-  android: "https://theacademia.cloud/files/download/AcademiaLink-Android.apk/",
 };
 
 export function getAcademiaLinkDownload(
@@ -22,7 +21,7 @@ export function getAcademiaLinkDownload(
   const identity = `${userAgent} ${platform}`;
 
   if (/android/i.test(identity)) {
-    return { href: ACADEMIA_LINK_DOWNLOADS.android, platform: "android" };
+    return { href: ACADEMIA_LINK_DOWNLOAD_PAGE, platform: null };
   }
 
   if (/iphone|ipad|ipod/i.test(identity) || (/macintel/i.test(platform) && maxTouchPoints > 1)) {

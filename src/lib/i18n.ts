@@ -60,13 +60,12 @@ const translations = {
   "products.supportbot.cta": { en: "Open SupportBot", uk: "Відкрити SupportBot" },
   "products.link.tag": { en: "Control and update app", uk: "Застосунок керування та оновлення" },
   "products.link.desc": {
-    en: "Connect to ACADEMIA-powered UAVs, install builds, manage licenses, and review flight records. Available for Windows, macOS, Linux, and Android.",
-    uk: "Підключайтеся до БПЛА на платформі ACADEMIA, встановлюйте збірки, керуйте ліцензіями та переглядайте записи польотів. Доступно для Windows, macOS, Linux та Android.",
+    en: "Connect to ACADEMIA-powered UAVs, install builds, manage licenses, and review flight records. Available for Windows, macOS, and Linux.",
+    uk: "Підключайтеся до БПЛА на платформі ACADEMIA, встановлюйте збірки, керуйте ліцензіями та переглядайте записи польотів. Доступно для Windows, macOS та Linux.",
   },
   "products.link.cta.windows": { en: "Download for Windows", uk: "Завантажити для Windows" },
   "products.link.cta.macos": { en: "Download for macOS", uk: "Завантажити для macOS" },
   "products.link.cta.linux": { en: "Download for Linux", uk: "Завантажити для Linux" },
-  "products.link.cta.android": { en: "Download for Android", uk: "Завантажити для Android" },
   "products.link.cta.all": { en: "View all downloads", uk: "Переглянути всі завантаження" },
 
   // Impact
