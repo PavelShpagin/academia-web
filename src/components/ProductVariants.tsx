@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import AcademiaLinkCard from "@/components/AcademiaLinkCard";
+import AcademiaLinkCard, { BETA_BADGE } from "@/components/AcademiaLinkCard";
 import * as i18n from "@/lib/i18n";
 
 /* ── Variant 1: Current — 3 equal cut-corner cards ── */
@@ -71,19 +71,19 @@ export function Products2({ lang = "en", supportbotUrl = "https://supportbot.inf
           </div>
         </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          <Link href={`/navix${lang === "uk" ? "?lang=uk" : ""}`} className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
-            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-neutral-500 border border-neutral-700 px-2.5 py-1 mb-6">{i18n.t("products.inTesting", l)}</span>
+          <Link href={`/navix${lang === "uk" ? "?lang=uk" : ""}`} className="group flex flex-col bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
+            <span className={`${BETA_BADGE} self-start mb-6`}>{i18n.t("products.openBeta", l)}</span>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>NaviX</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">{i18n.t("products.navix.tag", l)}</p>
             <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.navix.desc", l)}</p>
-            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.navix.cta", l)} &rarr;</span>
+            <span className="mt-auto self-start inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.navix.cta", l)} &rarr;</span>
           </Link>
-          <a href={supportbotUrl} target="_blank" rel="noopener noreferrer" className="group block bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
-            <span className="inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">{i18n.t("products.live", l)}</span>
+          <a href={supportbotUrl} target="_blank" rel="noopener noreferrer" className="group flex flex-col bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
+            <span className="self-start inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">{i18n.t("products.live", l)}</span>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
             <p className="text-[13px] font-medium tracking-wide uppercase text-neutral-500 mb-4">{i18n.t("products.supportbot.tag", l)}</p>
             <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.supportbot.desc", l)}</p>
-            <span className="inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.supportbot.cta", l)} &rarr;</span>
+            <span className="mt-auto self-start inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.supportbot.cta", l)} &rarr;</span>
           </a>
           <AcademiaLinkCard lang={l} />
         </div>

@@ -6,6 +6,7 @@ import Nav from "./Nav";
 import { Impact1 } from "./ImpactVariants";
 import { Research1 } from "./ResearchVariants";
 import { Products2 } from "./ProductVariants";
+import HomeProductPreviews, { ProductPreview } from "./HomeProductPreviews";
 import { Lang, t } from "@/lib/i18n";
 import { useLang } from "@/lib/useLang";
 
@@ -14,7 +15,7 @@ export interface HeroVariant {
   subtitle: string;
 }
 
-export default function PageContent({ units, initialLang = "en" }: { units: string[]; initialLang?: Lang }) {
+export default function PageContent({ units, initialLang = "en", preview = null }: { units: string[]; initialLang?: Lang; preview?: ProductPreview | null }) {
   const [lang, setLang] = useLang(initialLang);
   const supportbotUrl = `https://supportbot.info${lang === "uk" ? "?lang=uk" : ""}`;
 
@@ -53,7 +54,11 @@ export default function PageContent({ units, initialLang = "en" }: { units: stri
       </section>
 
       {/* ── Products Section ── */}
-      <Products2 lang={lang} supportbotUrl={supportbotUrl} />
+      {preview ? (
+        <HomeProductPreviews preview={preview} lang={lang} supportbotUrl={supportbotUrl} />
+      ) : (
+        <Products2 lang={lang} supportbotUrl={supportbotUrl} />
+      )}
 
       {/* ── Impact Section ── */}
       <Impact1 lang={lang} />
