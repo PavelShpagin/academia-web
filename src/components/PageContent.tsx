@@ -33,7 +33,7 @@ export default function PageContent({ units, initialLang = "en", preview = null 
           <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden pointer-events-none">
             <Image src="/drone.png" alt="" fill className="object-contain object-center opacity-90" priority />
           </div>
-          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2]">
+          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:py-10 z-[2]">
             <div className="absolute -inset-x-6 -bottom-12 -top-40 lg:hidden pointer-events-none -z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 35%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.3) 80%, transparent 90%)" }} />
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {t("hero.headline", lang).split("\n").map((line, i, arr) => (
