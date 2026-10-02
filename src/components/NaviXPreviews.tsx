@@ -90,7 +90,7 @@ export function naviXShot(which: NaviXShotMode, lang: Lang) {
   const c = copy[lang];
   return which === "circle"
     ? { src: "/navix-circle-kharkiv.jpg", alt: c.circleAlt, caption: c.circleCaption }
-    : { src: "/navix-corridor-kharkiv.jpg", alt: c.corridorAlt, caption: c.corridorCaption };
+    : { src: "/navix-corridor-kharkiv-trajectory.jpg", alt: c.corridorAlt, caption: c.corridorCaption };
 }
 
 /* ── Shared pieces ── */
