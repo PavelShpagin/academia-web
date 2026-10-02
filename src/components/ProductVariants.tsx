@@ -78,6 +78,7 @@ export function Products2({ lang = "en", supportbotUrl = "https://supportbot.inf
             <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.navix.desc", l)}</p>
             <span className="mt-auto self-start inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.navix.cta", l)} &rarr;</span>
           </Link>
+          <AcademiaLinkCard lang={l} />
           <a href={supportbotUrl} target="_blank" rel="noopener noreferrer" className="group flex flex-col bg-[#111] p-6 md:p-8 lg:p-10" style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
             <span className="self-start inline-block text-[11px] font-medium tracking-wide uppercase text-emerald-400/80 border border-emerald-400/30 px-2.5 py-1 mb-6">{i18n.t("products.live", l)}</span>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-3 group-hover:text-neutral-300 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>SupportBot</h3>
@@ -85,7 +86,6 @@ export function Products2({ lang = "en", supportbotUrl = "https://supportbot.inf
             <p className="text-neutral-400 text-[15px] leading-relaxed mb-6">{i18n.t("products.supportbot.desc", l)}</p>
             <span className="mt-auto self-start inline-flex items-center text-[14px] font-medium text-white border-b border-white/40 pb-1 group-hover:border-white transition-colors">{i18n.t("products.supportbot.cta", l)} &rarr;</span>
           </a>
-          <AcademiaLinkCard lang={l} />
         </div>
       </div>
     </section>
