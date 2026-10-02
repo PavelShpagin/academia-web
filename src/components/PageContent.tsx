@@ -25,7 +25,7 @@ export default function PageContent({ units, initialLang = "en", preview = null 
 
       {/* ── Hero ── */}
       <section className="relative flex flex-col" style={{ minHeight: "100svh" }}>
-        <div className="relative flex-1 flex items-end lg:items-center overflow-hidden pt-[72px]">
+        <div className="relative flex-1 flex items-end lg:items-stretch overflow-hidden pt-[72px]">
           <div className="absolute right-[6%] top-[6%] bottom-[6%] w-[53%] hidden lg:block xl:right-[8%] xl:top-[8%] xl:bottom-[8%] xl:w-[48%] 2xl:right-[12%] 2xl:top-[12%] 2xl:bottom-[12%] 2xl:w-[42%]">
             <Image src="/drone.png" alt="" fill className="object-contain object-center opacity-90" priority />
             <div className="absolute inset-0 bg-gradient-to-r from-white from-5% via-white/50 via-25% to-transparent to-55%" />
@@ -33,7 +33,7 @@ export default function PageContent({ units, initialLang = "en", preview = null 
           <div className="absolute left-[5%] right-[5%] top-[72px] bottom-[45%] lg:hidden pointer-events-none">
             <Image src="/drone.png" alt="" fill className="object-contain object-center opacity-90" priority />
           </div>
-          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:py-10 z-[2]">
+          <div className="relative max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24 pb-12 lg:pb-0 z-[2] lg:flex lg:flex-col lg:before:content-[''] lg:before:flex-[1_1_0px]">
             <div className="absolute -inset-x-6 -bottom-12 -top-40 lg:hidden pointer-events-none -z-[1]" style={{ background: "linear-gradient(to top, white 0%, white 35%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.3) 80%, transparent 90%)" }} />
             <h1 className="text-[clamp(2.5rem,7vw,6.5rem)] font-semibold tracking-[-0.04em] leading-[0.95] max-w-4xl text-black">
               {t("hero.headline", lang).split("\n").map((line, i, arr) => (
@@ -43,7 +43,8 @@ export default function PageContent({ units, initialLang = "en", preview = null 
             <p className="mt-6 md:mt-8 text-base md:text-xl text-neutral-500 max-w-xl leading-relaxed font-light">
               {t("hero.subtitle", lang)}
             </p>
-            <div className="mt-8 md:mt-10">
+            {/* Desktop: the CTA keeps its 88px footprint and shares the free space with the top spacer, so it centres between the subtitle and the marquee */}
+            <div className="mt-8 md:mt-10 lg:mt-0 lg:flex-[1_0_88px] lg:flex lg:items-center">
               <a href="#platforms" className="inline-flex items-center h-11 md:h-12 px-6 md:px-7 text-[14px] md:text-[15px] font-medium bg-black text-white hover:bg-neutral-800 transition-colors duration-200">
                 {t("hero.cta", lang)}
               </a>
