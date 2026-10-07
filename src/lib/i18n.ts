@@ -43,8 +43,8 @@ const translations = {
   "products.live": { en: "Live", uk: "Активний" },
   "products.stabx.tag": { en: "Optical Stabilization", uk: "Оптична стабілізація" },
   "products.stabx.desc": {
-    en: "GPS-free flight stabilization trusted by 700+ Armed Forces units. Day and night variants. Compatible with most Ardupilot-based UAVs.",
-    uk: "Стабілізація польоту без GPS, якій довіряють 700+ підрозділів ЗСУ. Денний та нічний варіанти. Сумісність з більшістю БПЛА на базі Ardupilot.",
+    en: "GPS-free flight stabilization trusted by 1,000+ Ukrainian Defense Forces units. Day and night variants. Compatible with most Ardupilot-based UAVs.",
+    uk: "Стабілізація польоту без GPS, якій довіряють 1 000+ підрозділів Сил оборони України. Денний та нічний варіанти. Сумісність з більшістю БПЛА на базі Ardupilot.",
   },
   "products.stabx.cta": { en: "View modules", uk: "Переглянути модулі" },
   "products.navix.tag": { en: "Visual Navigation", uk: "Візуальна навігація" },
@@ -68,25 +68,25 @@ const translations = {
 
   // Impact
   "impact.title": { en: "Impact", uk: "Результати" },
-  "impact.stat1.value": { en: "700+", uk: "700+" },
+  "impact.stat1.value": { en: "1,000+", uk: "1 000+" },
   "impact.stat1.label": {
-    en: "Armed Forces of Ukraine units running StabX",
-    uk: "Підрозділів ЗСУ використовують StabX",
+    en: "Ukrainian Defense Forces units running StabX",
+    uk: "Підрозділів Сил оборони України використовують StabX",
   },
-  "impact.stat2.value": { en: "47", uk: "47" },
+  "impact.stat2.value": { en: "40,000+", uk: "40 000+" },
   "impact.stat2.label": {
+    en: "StabX licences sold",
+    uk: "Ліцензій StabX продано",
+  },
+  "impact.stat3.value": { en: "170+", uk: "170+" },
+  "impact.stat3.label": {
     en: "UAV companies with StabX integrated into their platforms",
     uk: "Компаній-виробників БПЛА з інтегрованим StabX",
   },
-  "impact.stat3.value": { en: "4", uk: "4" },
-  "impact.stat3.label": {
-    en: "Retranslator codifications in progress with top-tier manufacturers",
-    uk: "Кодифікації ретрансляторів у процесі з провідними виробниками",
-  },
-  "impact.stat4.value": { en: "Brave1", uk: "Brave1" },
+  "impact.stat4.value": { en: "2,000+", uk: "2 000+" },
   "impact.stat4.label": {
-    en: "StabX modules listed on the Brave1 defense marketplace",
-    uk: "Модулі StabX представлені на оборонному маркетплейсі Brave1",
+    en: "Community members: manufacturers, unit representatives, integrators and pilots",
+    uk: "Учасників спільноти: виробники, представники підрозділів, інтегратори та пілоти",
   },
 
   // Research

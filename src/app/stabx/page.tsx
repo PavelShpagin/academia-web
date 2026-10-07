@@ -4,7 +4,7 @@ import { getLang } from "@/lib/i18n";
 
 export const metadata = {
   title: "StabX — Optical Flight Stabilization | Academia Tech",
-  description: "GPS-free optical flight stabilization for UAVs. Day and night variants. Trusted by 700+ Armed Forces of Ukraine units.",
+  description: "GPS-free optical flight stabilization for UAVs. Day and night variants. Trusted by 1,000+ Ukrainian Defense Forces units.",
 };
 
 export default async function StabXPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
