@@ -73,10 +73,10 @@ const translations = {
     en: "Ukrainian Defense Forces units running StabX",
     uk: "Підрозділів Сил оборони України використовують StabX",
   },
-  "impact.stat2.value": { en: "40,000+", uk: "40 000+" },
+  "impact.stat2.value": { en: "27,000+", uk: "27 000+" },
   "impact.stat2.label": {
-    en: "StabX licences sold",
-    uk: "Ліцензій StabX продано",
+    en: "Drones equipped with StabX",
+    uk: "Дронів оснащено StabX",
   },
   "impact.stat3.value": { en: "170+", uk: "170+" },
   "impact.stat3.label": {
