@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Anonymous_Pro, Unbounded } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -44,7 +45,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${anonymousPro.variable} ${unbounded.variable} antialiased`}
     >
-      <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>{children}</body>
+      <body style={{ fontFamily: "var(--font-sans), system-ui, sans-serif" }}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
